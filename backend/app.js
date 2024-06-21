@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan'); // log api requests
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 //Routes
 const productsRouter = require('./routers/productsRouter');
@@ -16,6 +17,8 @@ const api = process.env.API_URL;
 // Middleware
 app.use(express.json());
 app.use(morgan('tiny'));
+app.use(cors());
+app.options('*', cors());
 
 // Routers
 app.use(`${api}/products`, productsRouter);
