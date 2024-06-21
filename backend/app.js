@@ -3,18 +3,25 @@ const app = express();
 const morgan = require('morgan'); // log api requests
 const mongoose = require('mongoose');
 
+//Routes
+const productsRouter = require('./routers/productsRouter');
+const categoriesRouter = require('./routers/categoriesRouter');
+const usersRouter = require('./routers/usersRouter');
+const ordersRouter = require('./routers/ordersRouter');
+
 require('dotenv/config');
 
 const api = process.env.API_URL;
 
+// Middleware
 app.use(express.json());
 app.use(morgan('tiny'));
 
-app.post(`${api}/products`, (req, res) => {
-  const product = req.body;
-  console.log(product);
-  res.send(product);
-});
+// Routers
+app.use(`${api}/products`, productsRouter);
+app.use(`${api}/categories`, categoriesRouter);
+app.use(`${api}/users`, usersRouter);
+app.use(`${api}/orders`, ordersRouter);
 
 mongoose.connect(process.env.MONGODB, {
   useNewUrlParser: true,
