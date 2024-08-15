@@ -4,6 +4,7 @@ const morgan = require('morgan'); // log api requests
 const mongoose = require('mongoose');
 const cors = require('cors');
 const authJwt = require('./helpers/jwt');
+const errorHandler = require('./helpers/error-handler');
 
 //Routes
 const productsRouter = require('./routers/productsRouter');
@@ -21,6 +22,7 @@ app.use(morgan('tiny'));
 app.use(cors());
 app.options('*', cors());
 app.use(authJwt());
+app.use(errorHandler);
 
 // Routers
 app.use(`${api}/products`, productsRouter);
