@@ -3,6 +3,7 @@ const app = express();
 const morgan = require('morgan'); // log api requests
 const mongoose = require('mongoose');
 const cors = require('cors');
+const authJwt = require('./helpers/jwt');
 
 //Routes
 const productsRouter = require('./routers/productsRouter');
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(morgan('tiny'));
 app.use(cors());
 app.options('*', cors());
+app.use(authJwt());
 
 // Routers
 app.use(`${api}/products`, productsRouter);
