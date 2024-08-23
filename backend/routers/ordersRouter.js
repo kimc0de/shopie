@@ -13,6 +13,19 @@ router.get('/', async (req, res) => {
     res.send(orderList);
 });
 
+router.get('/get/userorders/:userId', async (req, res) => {
+    const orderList = await Order.find({user: req.params.userId}).populate({
+        path: 'orderItems', populate: {
+            path: 'product', populate: 'category'
+        }
+    }).sort({'dateOrdered': -1}); //sort newest first
+
+    if (!orderList) {
+        res.status(500).json({success: false});
+    }
+    res.send(orderList);
+});
+
 router.get('/:id', async (req, res) => {
     const order = await Order.findById(req.params.id)
       .populate('user', 'name')
@@ -44,6 +57,14 @@ router.post('/', async (req, res) => {
 
     const orderItemsIdsResolved = await orderItemsIds;
 
+    const totalItemsPrice = await Promise.all(orderItemsIdsResolved.map(async (orderItemId) => {
+        const orderItem = await OrderItem.findById(orderItemId).populate('product', 'price');
+
+        return orderItem.product.price * orderItem.quantity;
+    }));
+
+    const totalPrice = totalItemsPrice.reduce((a, b) => a + b, 0);
+
     let order = new Order({
         city: req.body.city,
         country: req.body.country,
@@ -52,7 +73,7 @@ router.post('/', async (req, res) => {
         shippingAddress1: req.body.shippingAddress1,
         shippingAddress2: req.body.shippingAddress2,
         status: req.body.status,
-        totalPrice: req.body.totalPrice,
+        totalPrice: totalPrice,
         user: req.body.user,
         zip: req.body.zip,
     });
@@ -90,5 +111,36 @@ router.delete('/:id', async (req, res) => {
         return res.status(400).json({success: false, error: err});
     });
 });
+
+router.get('/get/totalsales', async (req, res) => {
+    const totalSales = await Order.aggregate([
+        {
+            $group: {
+                _id: null,
+                totalsales: {
+                    $sum: '$totalPrice'
+                }
+            }
+        }
+    ]);
+
+    if (!totalSales) {
+        return res.status(400).send('The order sales cannot be generated!');
+    }
+
+    res.send({totalsales: totalSales.pop().totalsales});
+});
+
+router.get('/get/count', async (req, res) => {
+    const orderCount = await Order.countDocuments((count) => count);
+
+    if (!orderCount) {
+        res.status(500).json({success: false});
+    }
+    res.send({
+        orderCount: orderCount
+    });
+});
+
 
 module.exports = router;
