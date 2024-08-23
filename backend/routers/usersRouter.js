@@ -24,16 +24,16 @@ router.get(`/:id`, async (req, res) => {
 
 router.post('/register', async (req, res) => {
     let user = new User({
-        name: req.body.name,
+        city: req.body.city,
+        country: req.body.country,
         email: req.body.email,
+        houseNumber: req.body.houseNumber,
+        isAdmin: req.body.isAdmin,
+        name: req.body.name,
         passwordHash: bcrypt.hashSync(req.body.password, 10),
         phone: req.body.phone,
-        isAdmin: req.body.isAdmin,
         street: req.body.street,
-        houseNumber: req.body.houseNumber,
-        zip: req.body.zip,
-        city: req.body.city,
-        country: req.body.country
+        zip: req.body.zip
     });
 
     user = await user.save();

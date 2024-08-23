@@ -35,13 +35,13 @@ router.post('/', async (req, res) => {
   }
 
   let product = new Product({
-    name: req.body.name,
     brand: req.body.brand,
     category: req.body.category,
     countInStock: req.body.countInStock,
     description: req.body.description,
     image: req.body.image,
     isFeatured: req.body.isFeatured,
+    name: req.body.name,
     numReviews: req.body.numReviews,
     price: req.body.price,
     rating: req.body.rating,
