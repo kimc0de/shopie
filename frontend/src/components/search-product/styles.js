@@ -9,8 +9,6 @@ import {
 
 export const styles = StyleSheet.create({
   productSearch_container: {
-    height: "85%",
-    width: "100%",
     margin: Space.SPACE_4,
   },
   productSearch_item: {

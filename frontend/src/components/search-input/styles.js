@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-evenly",
   },
   searchBar_input: {
-    fontSize: FontSize.EXTRA_1,
+    fontSize: FontSize.SMALL_3,
     marginLeft: Space.SPACE_16,
     width: "90%",
     height: toDp(150),

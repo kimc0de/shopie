@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {
   View,
-  FlatList, TouchableOpacity,
+  FlatList,
+  TouchableOpacity,
 } from 'react-native';
 
 import {products} from '../../../assets/data/products';
 import {SearchBar} from '../../components/search-input';
 import {ProductSearch} from '../../components/search-product';
+import {Highlights} from '../../components/highlight';
 
 import {ProductCard} from './product-card';
 import {styles} from './styles';
@@ -51,6 +53,9 @@ export const Products = () => {
             />
         ) : (
           <View style={styles.productContainer_wrapper}>
+            <View>
+              <Highlights />
+            </View>
             <FlatList
               data={productsList}
               renderItem={renderItems}

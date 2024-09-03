@@ -30,7 +30,7 @@ export const SearchBar = ({focused, searchPhrase, setSearchPhrase, setFocused}) 
         />
         <TextInput
           style={styles.searchBar_input}
-          placeholder="Search"
+          placeholder="search products..."
           value={searchPhrase}
           onChangeText={setSearchPhrase}
           onFocus={() => {
