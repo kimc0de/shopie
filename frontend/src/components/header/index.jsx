@@ -2,6 +2,7 @@ import {
   Image,
   SafeAreaView
 } from 'react-native';
+
 import {styles} from './styles';
 
 const imageSource = require('../../../assets/images/logo_2.png');

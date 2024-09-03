@@ -1,0 +1,21 @@
+import {toDp} from './dp-map';
+
+export const SPACE_HALF = toDp(3);
+export const SPACE_1 = toDp(6);
+export const SPACE_2 = toDp(12);
+export const SPACE_3 = toDp(18);
+export const SPACE_4 = toDp(24);
+export const SPACE_5 = toDp(30);
+export const SPACE_6 = toDp(36);
+export const SPACE_8 = toDp(48);
+export const SPACE_9 = toDp(54);
+export const SPACE_10 = toDp(60);
+export const SPACE_11 = toDp(66);
+export const SPACE_12 = toDp(72);
+export const SPACE_13 = toDp(78);
+export const SPACE_14 = toDp(84);
+export const SPACE_15 = toDp(90);
+export const SPACE_16 = toDp(96);
+export const SPACE_17 = toDp(102);
+export const SPACE_18 = toDp(108);
+export const SPACE_20 = toDp(120);

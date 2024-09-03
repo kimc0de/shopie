@@ -1,4 +1,8 @@
 import {StyleSheet} from 'react-native';
+import {
+  Space,
+  toDp,
+} from '../../styles';
 
 export const styles = StyleSheet.create({
   header: {
@@ -6,9 +10,10 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignContent: 'center',
     justifyContent: 'center',
-    padding: 20,
+    marginTop: Space.SPACE_10,
   },
   header_image: {
-    height: 50,
+    height: toDp(200),
+    width: toDp(200),
   }
 });

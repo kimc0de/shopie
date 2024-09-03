@@ -59,4 +59,11 @@ export const styles = StyleSheet.create({
         color: 'red',
         textAlign: 'center',
     },
+    searchBar: {
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        margin: 10,
+        paddingLeft: 10,
+    },
 });
