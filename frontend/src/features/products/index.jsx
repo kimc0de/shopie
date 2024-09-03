@@ -46,11 +46,11 @@ export const Products = () => {
       </View>
       {
         focused ? (
-            <ProductSearch
-              searchPhrase={searchPhrase}
-              data={productsList}
-              setFocused={setFocused}
-            />
+          <ProductSearch
+            searchPhrase={searchPhrase}
+            data={productsList}
+            setFocused={setFocused}
+          />
         ) : (
           <View style={styles.productContainer_wrapper}>
             <View>

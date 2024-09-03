@@ -58,6 +58,7 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: Space.SPACE_4,
   },
+  // @TODO: Unify android & ios button look
   productCard_add: {
     marginBottom: Space.SPACE_10,
   },

@@ -10,7 +10,7 @@ const {width} = Dimensions.get('window');
 export const styles = StyleSheet.create({
   highlights_container: {
     height: width / 2,
-    marginBottom: Space.SPACE_6
+    marginBottom: Space.SPACE_10,
   },
   highlights_swiper: {
     width: width,
