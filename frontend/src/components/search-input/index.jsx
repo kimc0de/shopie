@@ -12,14 +12,14 @@ import {
 
 import {styles} from "./styles";
 
-export const SearchBar = ({clicked, searchPhrase, setSearchPhrase, setClicked}) => {
+export const SearchBar = ({focused, searchPhrase, setSearchPhrase, setFocused}) => {
   return (
     <View style={styles.searchBar_container}>
       <View
         style={
-          clicked
-            ? styles.searchBar__clicked
-            : styles.searchBar__unClicked
+          focused
+            ? styles.searchBar__focused
+            : styles.searchBar__unFocused
         }
       >
         <Feather
@@ -34,10 +34,10 @@ export const SearchBar = ({clicked, searchPhrase, setSearchPhrase, setClicked}) 
           value={searchPhrase}
           onChangeText={setSearchPhrase}
           onFocus={() => {
-            setClicked(true);
+            setFocused(true);
           }}
         />
-        {clicked && (
+        {focused && (
           <Entypo
             name="cross"
             size={20}
@@ -49,13 +49,13 @@ export const SearchBar = ({clicked, searchPhrase, setSearchPhrase, setClicked}) 
           />
         )}
       </View>
-      {clicked && (
+      {focused && (
         <View style={styles.searchBar_cancelButton}>
           <Button
             title="Cancel"
             onPress={() => {
               Keyboard.dismiss();
-              setClicked(false);
+              setFocused(false);
             }}
           ></Button>
         </View>

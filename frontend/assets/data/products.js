@@ -99,7 +99,7 @@ export const products = [
     "rating": 5,
     "numReviews": null,
     "isFeatured": true,
-    "name": "Sofa",
+    "name": "Sofa New",
     "description": "Big Sofa for living room",
     "category": {
       "$oid": "5f15d5b2cb4a6642bddc0fe7"

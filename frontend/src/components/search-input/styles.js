@@ -31,11 +31,11 @@ export const styles = StyleSheet.create({
   searchBar_closeIcon: {
     marginRight: Space.SPACE_10,
   },
-  searchBar__unClicked: {
+  searchBar__unFocused: {
     ...searchBar,
     width: "95%",
   },
-  searchBar__clicked: {
+  searchBar__focused: {
     ...searchBar,
     width: "80%",
     justifyContent: "space-evenly",

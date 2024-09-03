@@ -28,7 +28,7 @@ export const ProductCard = (props) => {
       <Text style={styles.productCard_title}>
         {productName}
       </Text>
-      <Text styles={styles.productCard_price}>${price}</Text>
+      <Text style={styles.productCard_price}>${price}</Text>
       {
         countInStock > 0 ? (
           <View style={styles.productCard_add}>

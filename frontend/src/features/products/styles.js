@@ -3,7 +3,7 @@ import {StyleSheet, Dimensions} from 'react-native';
 import {
   BorderRadius,
   FontSize,
-  FontFamily,
+  FontStyle,
   Space,
 } from '../../styles';
 
@@ -49,28 +49,21 @@ export const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   productCard_title: {
-    fontSize: FontSize.EXTRA_2,
-    fontWeight: FontFamily.BOLD,
+    fontSize: FontSize.SMALL_3,
+    fontWeight: FontStyle.BOLD,
     textAlign: 'center',
   },
   productCard_price: {
-    fontSize: FontSize.EXTRA_1,
+    fontSize: FontSize.SMALL_3,
     textAlign: 'center',
-    marginTop: 10,
+    marginTop: Space.SPACE_4,
   },
   productCard_add: {
-    marginBottom: 60,
+    marginBottom: Space.SPACE_10,
   },
   productCard_unavailable: {
     marginTop: 20,
     color: 'red',
     textAlign: 'center',
-  },
-  searchBar: {
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    margin: 10,
-    paddingLeft: 10,
   },
 });
