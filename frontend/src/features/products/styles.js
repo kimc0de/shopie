@@ -5,7 +5,6 @@ import {
   FontSize,
   FontFamily,
   Space,
-  toDp,
 } from '../../styles';
 
 const {width} = Dimensions.get('window');
