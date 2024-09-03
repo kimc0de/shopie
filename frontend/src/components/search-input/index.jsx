@@ -44,7 +44,7 @@ export const SearchBar = ({focused, searchPhrase, setSearchPhrase, setFocused}) 
             color="black"
             style={styles.searchBar_closeIcon}
             onPress={() => {
-            setSearchPhrase("")
+              setSearchPhrase("")
             }}
           />
         )}

@@ -13,7 +13,6 @@ const searchBar = {
   backgroundColor: "#d9dbda",
   borderRadius: BorderRadius.EXTRA_LARGE,
   alignItems: "center",
-  width: "100%",
 }
 
 export const styles = StyleSheet.create({

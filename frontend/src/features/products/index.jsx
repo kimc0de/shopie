@@ -1,22 +1,23 @@
 import React, {useState, useEffect} from 'react';
 import {
   View,
-  FlatList,
+  FlatList, TouchableOpacity,
 } from 'react-native';
 
 import {products} from '../../../assets/data/products';
 import {SearchBar} from '../../components/search-input';
 import {ProductSearch} from '../../components/search-product';
 
-import {ProductList} from './product-list';
+import {ProductCard} from './product-card';
 import {styles} from './styles';
 
 const renderItems = ({item}) => {
   return (
-    <ProductList
-      key={item.id}
-      item={item}
-    />
+    <TouchableOpacity>
+      <View style={styles.productList_wrapper}>
+        <ProductCard {...item} />
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -37,7 +38,7 @@ export const Products = () => {
         <SearchBar
           searchPhrase={searchPhrase}
           setSearchPhrase={setSearchPhrase}
-          focus={focused}
+          focused={focused}
           setFocused={setFocused}
         />
       </View>
