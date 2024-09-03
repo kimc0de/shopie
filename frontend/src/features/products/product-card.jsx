@@ -25,10 +25,10 @@ export const ProductCard = (props) => {
         source={{uri: image ? image: 'https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png'}}
       />
       <View style={styles.productCard}/>
-      <Text style={styles.title}>
+      <Text style={styles.productCard_title}>
         {productName}
       </Text>
-      <Text styles={styles.price}>${price}</Text>
+      <Text styles={styles.productCard_price}>${price}</Text>
       {
         countInStock > 0 ? (
           <View style={styles.productCard_add}>

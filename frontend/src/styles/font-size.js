@@ -1,5 +1,7 @@
 import {toDp} from './dp-map';
 
+export const EXTRA_3 = toDp(72);
+export const EXTRA_2 = toDp(66);
 export const EXTRA_1 = toDp(60);
 export const LARGE_3 = toDp(48);
 export const LARGE_2 = toDp(44);
