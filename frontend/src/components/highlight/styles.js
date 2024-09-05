@@ -3,24 +3,30 @@ import {StyleSheet, Dimensions} from 'react-native';
 import {
   BorderRadius,
   Space,
+  toDp,
 } from '../../styles';
 
 const {width} = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   highlights_container: {
-    height: width / 2,
-    marginBottom: Space.SPACE_10,
+    flex: 1,
+    minHeight: toDp(320),
+    marginBottom: Space.SPACE_1,
+    backgroundColor: '#f2f2f2',
+  },
+  highlights_swiper_wrapper: {
+    width: width,
+    alignItems: 'center',
+    marginVertical: Space.SPACE_2,
   },
   highlights_swiper: {
-    width: width,
-    alignItems: "center",
-    marginTop: Space.SPACE_6,
+    height: width / 2,
   },
   highlights_image: {
     width: width - 40,
     height: width / 2,
-    borderRadius: BorderRadius.PILL,
-    marginHorizontal: Space.SPACE_10,
+    borderRadius: BorderRadius.MEDIUM,
+    marginHorizontal: Space.SPACE_3,
   },
 });

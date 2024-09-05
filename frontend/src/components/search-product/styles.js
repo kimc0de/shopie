@@ -9,11 +9,11 @@ import {
 
 export const styles = StyleSheet.create({
   productSearch_container: {
-    margin: Space.SPACE_4,
+    margin: Space.SPACE_1,
   },
   productSearch_item: {
     flexDirection: "row",
-    margin: Space.SPACE_20,
+    margin: Space.SPACE_2,
     borderBottomWidth: 1,
     borderBottomColor: "lightgrey"
   },
@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     fontSize: FontSize.MEDIUM_1,
     fontWeight: FontStyle.BOLD,
     fontStyle: FontStyle.ITALIC,
-    marginBottom: Space.SPACE_4,
+    marginBottom: Space.SPACE_2,
   },
   productSearch_details: {
     fontSize: FontSize.SMALL_3,
@@ -31,6 +31,6 @@ export const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: BorderRadius.MEDIUM,
-    marginRight: Space.SPACE_10,
+    marginRight: Space.SPACE_2,
   }
 });

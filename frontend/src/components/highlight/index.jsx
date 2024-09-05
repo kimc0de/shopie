@@ -22,25 +22,25 @@ export const Highlights = () => {
   return (
     <ScrollView>
       <View style={styles.highlights_container}>
-        {/* @TODO:Fix Swiper does not swipe! */}
-        <Swiper
-          style={styles.highlights_swiper}
-          showsButtons={false}
-          autoplay
-          scrollEnabled
-          autoplayTimeout={1}
-        >
-          {highlightsData.map((item) => {
-            return (
-              <Image
-                key={item}
-                style={styles.highlights_image}
-                resizeMode="contain"
-                source={{uri: item}}
-              />
-            )
-          })}
-        </Swiper>
+        <View style={styles.highlights_swiper_wrapper}>
+          <Swiper
+            style={styles.highlights_swiper}
+            showsButtons={false}
+            autoplay
+            scrollEnabled
+            autoplayTimeout={10}
+          >
+            {highlightsData.map((item) => {
+              return (
+                <Image
+                  key={item}
+                  style={styles.highlights_image}
+                  source={{uri: item}}
+                />
+              )
+            })}
+          </Swiper>
+        </View>
       </View>
     </ScrollView>
   )

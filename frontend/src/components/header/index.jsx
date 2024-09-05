@@ -1,20 +1,20 @@
 import {
   Image,
-  SafeAreaView
+  View,
 } from 'react-native';
 
 import {styles} from './styles';
 
-const imageSource = require('../../../assets/images/logo_2.png');
+const imageSource = require('../../../assets/images/logo.png');
 
 export const Header = () => {
   return (
-    <SafeAreaView style={styles.header}>
+    <View style={styles.header}>
       <Image
         style={styles.header_image}
         resizeMode='contain'
         source={imageSource}
       />
-    </SafeAreaView>
+    </View>
   )
 }

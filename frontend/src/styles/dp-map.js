@@ -3,8 +3,8 @@ import {
     PixelRatio,
 } from 'react-native';
 
-// The provided design is based on a 1920x1080 screen resolution
-const BASE_WIDTH = 1920;
+// The provided design is based on a 375px screen width (common for mobile design)
+const BASE_WIDTH = 375;
 
 const {width: screenWidth} = Dimensions.get('window');
 const scale = screenWidth / BASE_WIDTH;

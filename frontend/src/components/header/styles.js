@@ -4,16 +4,16 @@ import {
   toDp,
 } from '../../styles';
 
+export const HEADER_HEIGHT = toDp(50);
 export const styles = StyleSheet.create({
   header: {
     width: '100%',
-    flexDirection: 'row',
-    alignContent: 'center',
-    justifyContent: 'center',
+    height: HEADER_HEIGHT,
+    alignItems: 'center',
     marginTop: Space.SPACE_10,
   },
   header_image: {
-    height: toDp(200),
-    width: toDp(200),
+    height: toDp(50),
+    width: toDp(50),
   }
 });

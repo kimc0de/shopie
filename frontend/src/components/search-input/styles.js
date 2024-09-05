@@ -8,27 +8,25 @@ import {
 } from '../../styles';
 
 const searchBar = {
-  padding: Space.SPACE_4,
+  padding: Space.SPACE_2,
   flexDirection: "row",
-  backgroundColor: "#d9dbda",
+  backgroundColor: "#f2f2f2",
   borderRadius: BorderRadius.EXTRA_LARGE,
   alignItems: "center",
 }
 
 export const styles = StyleSheet.create({
   searchBar_container: {
-    marginHorizontal: Space.SPACE_16,
-    marginVertical: Space.SPACE_8,
-    justifyContent: "center",
+    marginVertical: Space.SPACE_1,
     alignItems: "center",
     flexDirection: "row",
     width: "90%",
   },
   searchBar_searchIcon: {
-    marginLeft: Space.SPACE_10,
+    marginLeft: Space.SPACE_1,
   },
   searchBar_closeIcon: {
-    marginRight: Space.SPACE_10,
+    marginRight: Space.SPACE_1,
   },
   searchBar__unFocused: {
     ...searchBar,
@@ -37,15 +35,15 @@ export const styles = StyleSheet.create({
   searchBar__focused: {
     ...searchBar,
     width: "80%",
-    justifyContent: "space-evenly",
+    justifyContent: "space-between",
   },
   searchBar_input: {
     fontSize: FontSize.SMALL_3,
-    marginLeft: Space.SPACE_16,
-    width: "90%",
-    height: toDp(150),
+    marginLeft: Space.SPACE_2,
+    width: "75%",
+    height: toDp(20),
   },
   searchBar_cancelButton: {
-    marginLeft: Space.SPACE_4,
+    marginLeft: Space.SPACE_2,
   }
 });

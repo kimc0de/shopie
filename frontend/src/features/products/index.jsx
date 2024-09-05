@@ -6,17 +6,19 @@ import {
 } from 'react-native';
 
 import {products} from '../../../assets/data/products';
+import {categories} from '../../../assets/data/categories';
 import {SearchBar} from '../../components/search-input';
 import {ProductSearch} from '../../components/search-product';
 import {Highlights} from '../../components/highlight';
+import {ProductCard} from '../../components/product-card';
+import {Category} from '../../components/category';
 
-import {ProductCard} from './product-card';
 import {styles} from './styles';
 
 const renderItems = ({item}) => {
   return (
     <TouchableOpacity>
-      <View style={styles.productList_wrapper}>
+      <View style={styles.productCard_wrapper}>
         <ProductCard {...item} />
       </View>
     </TouchableOpacity>
@@ -27,15 +29,21 @@ const keyExtractor = (item) => item.name;
 
 export const Products = () => {
   const [productsList, setProductsList] = useState([]);
+  const [categoriesList, setCategoriesList] = useState([]);
   const [searchPhrase, setSearchPhrase] = useState("");
   const [focused, setFocused] = useState(false);
+  const [active, setActive] = useState(-1);
+  const [initialState, setInitialState] = useState([]);
 
   useEffect(() => {
     setProductsList(products);
+    setCategoriesList(categories);
+    setActive(-1);
+    setInitialState(products);
   }, []);
 
   return (
-    <View>
+    <View style={styles.products}>
       <View>
         <SearchBar
           searchPhrase={searchPhrase}
@@ -52,10 +60,12 @@ export const Products = () => {
             setFocused={setFocused}
           />
         ) : (
-          <View style={styles.productContainer_wrapper}>
-            <View>
-              <Highlights />
-            </View>
+          <View style={styles.products_container}>
+            <Highlights />
+
+            {/*<View>*/}
+            {/*  <Category />*/}
+            {/*</View>*/}
             <FlatList
               data={productsList}
               renderItem={renderItems}
