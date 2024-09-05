@@ -7,14 +7,15 @@ const {width} = Dimensions.get('window');
 export const styles = StyleSheet.create({
   products: {
     marginTop: Space.SPACE_1,
-    paddingBottom: Space.SPACE_10,
+    // paddingBottom: Space.SPACE_10,
     alignItems: 'center',
     justifyContent: 'center',
   },
   products_container: {
     flex: 1,
+    alignItems: 'center',
     marginTop: Space.SPACE_1,
-    marginBottom: Space.SPACE_10,
+    // marginBottom: Space.SPACE_10,
   },
   productCard_wrapper: {
     width: width / 2,

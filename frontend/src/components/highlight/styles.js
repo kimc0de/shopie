@@ -9,10 +9,12 @@ import {
 const {width} = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
+  highlights_scrollView: {
+    marginBottom: Space.SPACE_2,
+  },
   highlights_container: {
     flex: 1,
     minHeight: toDp(320),
-    marginBottom: Space.SPACE_1,
     backgroundColor: '#f2f2f2',
   },
   highlights_swiper_wrapper: {

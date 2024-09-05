@@ -20,7 +20,7 @@ export const Highlights = () => {
   }, []);
 
   return (
-    <ScrollView>
+    <ScrollView style={styles.highlights_scrollView}>
       <View style={styles.highlights_container}>
         <View style={styles.highlights_swiper_wrapper}>
           <Swiper

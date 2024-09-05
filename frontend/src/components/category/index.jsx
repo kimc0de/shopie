@@ -1,8 +1,6 @@
 import {
-  FlatList,
   ScrollView,
   TouchableOpacity,
-  Text,
 } from 'react-native';
 import {Badge} from '../badge';
 
@@ -15,12 +13,28 @@ export const Category = (props) => {
       bounces
       horizontal
     >
-        <TouchableOpacity
-          key={1}
-          // onPress={() => {}}
-        >
-          <Badge label='name'/>
-        </TouchableOpacity>
+      <TouchableOpacity
+        key={1}
+        onPress={() => {
+          props.changeCategory('all'),
+          props.setActive(-1)
+        }}
+      >
+        <Badge active={props.active === -1} label="All"/>
+      </TouchableOpacity>
+      {
+        props.categories.map((category) => (
+          <TouchableOpacity
+            key={category._id}
+            onPress={() => {
+              props.changeCategory(category._id),
+              props.setActive(props.categories.indexOf(category))
+            }}
+          >
+            <Badge active={props.active === props.categories.indexOf(category)} label={category.name}/>
+          </TouchableOpacity>
+        ))
+      }
     </ScrollView>
   )
 }

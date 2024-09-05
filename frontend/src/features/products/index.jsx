@@ -34,6 +34,7 @@ export const Products = () => {
   const [focused, setFocused] = useState(false);
   const [active, setActive] = useState(-1);
   const [initialState, setInitialState] = useState([]);
+  const [productCtg, setProductCtg] = useState([]);
 
   useEffect(() => {
     setProductsList(products);
@@ -41,6 +42,19 @@ export const Products = () => {
     setActive(-1);
     setInitialState(products);
   }, []);
+
+  const changeCategory = (ctg) => {
+    {
+      ctg === "all"
+        ? [setProductCtg(initialState), setActive(-1)]
+        : [
+          setProductCtg(
+            products.filter((i) => i.category.$oid === ctg),
+            setActive(true)
+          ),
+        ];
+    }
+  };
 
   return (
     <View style={styles.products}>
@@ -62,10 +76,13 @@ export const Products = () => {
         ) : (
           <View style={styles.products_container}>
             <Highlights />
-
-            {/*<View>*/}
-            {/*  <Category />*/}
-            {/*</View>*/}
+            <Category
+              categories={categoriesList}
+              changeCategory={changeCategory}
+              productCategorie={active}
+              active={active}
+              setActive={setActive}
+            />
             <FlatList
               data={productsList}
               renderItem={renderItems}
