@@ -80,7 +80,7 @@ export const Products = () => {
                     <View style={styles.products_container}>
                       {productsCtg.map((item) => {
                         return (
-                          <TouchableOpacity>
+                          <TouchableOpacity key={item._id.$oid}>
                             <View style={styles.productCard_wrapper}>
                               <ProductCard {...item} />
                             </View>

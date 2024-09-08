@@ -25,7 +25,7 @@ export const Category = (props) => {
       {
         props.categories.map((category) => (
           <TouchableOpacity
-            key={category._id}
+            key={category._id.$oid}
             onPress={() => {
               props.changeCategory(category._id),
               props.setActive(props.categories.indexOf(category))
