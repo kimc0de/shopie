@@ -2,6 +2,7 @@ import Icon from '@expo/vector-icons/FontAwesome';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {HomeNavigator} from '../navigators/home-navigator';
+import {CartNavigator} from '../navigators/cart-navigator';
 
 export const Tab = createBottomTabNavigator();
 
@@ -11,12 +12,12 @@ export const Main = () => {
       initialRouteName="Home"
       screenOptions={{
         tabBarHideOnKeyboard: true,
-        tabBarShowLabel: false,
+        tabBarShowLabel: true,
         tabBarActiveTintColor: 'black',
       }}
     >
       <Tab.Screen
-        name="Products"
+        name="Home"
         component={HomeNavigator}
         options={{
           headerShown: false,
@@ -27,7 +28,7 @@ export const Main = () => {
       />
       <Tab.Screen
         name="Cart"
-        component={HomeNavigator}
+        component={CartNavigator}
         options={{
           headerShown: false,
           tabBarIcon: ({color}) => (

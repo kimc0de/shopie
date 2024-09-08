@@ -4,12 +4,14 @@ import {
   Text,
   Button,
 } from 'react-native';
+import {connect} from 'react-redux';
 
 import {DEFAULT_IMAGE} from '../../components/product-card/constants';
+import * as actions from '../../features/cart/actions';
 
 import {styles} from './styles';
 
-export const ProductCard = (props) => {
+const BaseProductCard = (props) => {
   const {
     name,
     price,
@@ -34,10 +36,24 @@ export const ProductCard = (props) => {
         {
           countInStock > 0 ? (
             <View style={styles.productCard_add}>
-              <Button title={'Add'} color={'blue'}/>
+              <Button
+                title='Add'
+                color='blue'
+                onPress={() => {
+                  props.addItemToCart(props);
+                }}
+              />
             </View>
           ) : <Text style={styles.productCard_unavailable}>Currently Unavailable</Text>
         }
     </View>
   )
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addItemToCart: (product) => dispatch(actions.addToCart({quantity: 1, product})),
+  };
+}
+
+export const ProductCard = connect(null, mapDispatchToProps)(BaseProductCard);

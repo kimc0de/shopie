@@ -1,11 +1,19 @@
-import {Button, Image, View, Text, ScrollView} from 'react-native';
+import {
+  Button,
+  Image,
+  View,
+  Text,
+  ScrollView,
+} from 'react-native';
 import {useState} from 'react';
+import {connect} from 'react-redux';
 
 import {DEFAULT_IMAGE} from '../../components/product-card/constants';
+import * as actions from '../../features/cart/actions';
 
 import {styles} from './styles';
 
-export const ProductDetails = (props) => {
+const BaseProductDetails = (props) => {
   const [item, setItem] = useState(props.route.params.item);
   const [availability, setAvailability] = useState(null);
 
@@ -34,8 +42,20 @@ export const ProductDetails = (props) => {
           </Text>
           <Button
             title='Add'
-            color={'blue'}/>
+            color={'blue'}
+            onPress={() => {
+              props.addItemToCart(item);
+            }}
+          />
       </View>
     </View>
   )
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addItemToCart: (product) => dispatch(actions.addToCart({quantity: 1, product})),
+  };
+}
+
+export const ProductDetails = connect(null, mapDispatchToProps)(BaseProductDetails);
