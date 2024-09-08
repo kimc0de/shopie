@@ -1,9 +1,5 @@
 import {Dimensions, StyleSheet} from 'react-native';
 
-import {
-  FontSize
-} from '../../styles';
-
 const {height} = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
