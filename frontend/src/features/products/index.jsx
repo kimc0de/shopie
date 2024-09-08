@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {
   View,
-  FlatList,
   TouchableOpacity,
+  ScrollView,
+  Text,
 } from 'react-native';
 
 import {products} from '../../../assets/data/products';
@@ -15,18 +16,6 @@ import {Category} from '../../components/category';
 
 import {styles} from './styles';
 
-const renderItems = ({item}) => {
-  return (
-    <TouchableOpacity>
-      <View style={styles.productCard_wrapper}>
-        <ProductCard {...item} />
-      </View>
-    </TouchableOpacity>
-  );
-};
-
-const keyExtractor = (item) => item.name;
-
 export const Products = () => {
   const [productsList, setProductsList] = useState([]);
   const [categoriesList, setCategoriesList] = useState([]);
@@ -34,21 +23,22 @@ export const Products = () => {
   const [focused, setFocused] = useState(false);
   const [active, setActive] = useState(-1);
   const [initialState, setInitialState] = useState([]);
-  const [productCtg, setProductCtg] = useState([]);
+  const [productsCtg, setProductsCtg] = useState([]);
 
   useEffect(() => {
     setProductsList(products);
     setCategoriesList(categories);
     setActive(-1);
     setInitialState(products);
+    setProductsCtg(products);
   }, []);
 
   const changeCategory = (ctg) => {
     {
       ctg === "all"
-        ? [setProductCtg(initialState), setActive(-1)]
+        ? [setProductsCtg(initialState), setActive(-1)]
         : [
-          setProductCtg(
+          setProductsCtg(
             products.filter((i) => i.category.$oid === ctg),
             setActive(true)
           ),
@@ -74,22 +64,39 @@ export const Products = () => {
             setFocused={setFocused}
           />
         ) : (
-          <View style={styles.products_container}>
-            <Highlights />
-            <Category
-              categories={categoriesList}
-              changeCategory={changeCategory}
-              productCategorie={active}
-              active={active}
-              setActive={setActive}
-            />
-            <FlatList
-              data={productsList}
-              renderItem={renderItems}
-              keyExtractor={keyExtractor}
-              numColumns={2}
-            />
-          </View>
+          <ScrollView>
+            <View style={styles.products_section}>
+              <Highlights />
+              <Category
+                categories={categoriesList}
+                changeCategory={changeCategory}
+                productCategorie={active}
+                active={active}
+                setActive={setActive}
+              />
+              {
+                productsCtg.length > 0
+                  ? (
+                    <View style={styles.products_container}>
+                      {productsCtg.map((item) => {
+                        return (
+                          <TouchableOpacity>
+                            <View style={styles.productCard_wrapper}>
+                              <ProductCard {...item} />
+                            </View>
+                          </TouchableOpacity>
+                        )
+                      })}
+                    </View>
+                  )
+                  : (
+                    <View style={styles.products_notfound}>
+                      <Text>No products found</Text>
+                    </View>
+                  )
+              }
+            </View>
+          </ScrollView>
         )
       }
     </View>

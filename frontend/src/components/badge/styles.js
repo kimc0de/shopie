@@ -14,7 +14,7 @@ const badge = {
   paddingHorizontal: Space.SPACE_2,
   borderRadius: BorderRadius.PILL,
   height: Space.SPACE_4,
-  marginHorizontal: Space.SPACE_HALF,
+  marginHorizontal: Space.SPACE_1,
 };
 
 const badge_label= {

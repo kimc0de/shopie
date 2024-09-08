@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
   },
   highlights_container: {
     flex: 1,
-    minHeight: toDp(320),
+    minHeight: toDp(200),
     backgroundColor: '#f2f2f2',
   },
   highlights_swiper_wrapper: {

@@ -2,23 +2,32 @@ import {StyleSheet, Dimensions} from 'react-native';
 
 import {Space} from '../../styles';
 
-const {width} = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   products: {
     marginTop: Space.SPACE_1,
-    // paddingBottom: Space.SPACE_10,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  products_container: {
+  products_section: {
     flex: 1,
     alignItems: 'center',
     marginTop: Space.SPACE_1,
-    // marginBottom: Space.SPACE_10,
+    marginBottom: Space.SPACE_20,
   },
   productCard_wrapper: {
     width: width / 2,
     alignItems: 'center',
   },
+  products_container: {
+    flex: 1,
+    flexDirection: "row",
+    alignItems: "flex-start",
+    flexWrap: "wrap",
+  },
+  products_notfound: {
+    justifyContent: 'center',
+    height: height / 2,
+  }
 });
