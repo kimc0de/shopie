@@ -13,10 +13,11 @@ import {ProductSearch} from '../../components/search-product';
 import {Highlights} from '../../components/highlight';
 import {ProductCard} from '../../components/product-card';
 import {Category} from '../../components/category';
+import {PRODUCT_DETAILS} from '../../routes';
 
 import {styles} from './styles';
 
-export const Products = () => {
+export const Products = (props) => {
   const [productsList, setProductsList] = useState([]);
   const [categoriesList, setCategoriesList] = useState([]);
   const [searchPhrase, setSearchPhrase] = useState("");
@@ -46,6 +47,10 @@ export const Products = () => {
     }
   };
 
+  const navigateToProductDetails = (item) => {
+    props.navigation.navigate(PRODUCT_DETAILS, {item});
+  };
+
   return (
     <View style={styles.products}>
       <View>
@@ -59,6 +64,7 @@ export const Products = () => {
       {
         focused ? (
           <ProductSearch
+            navigation={props.navigation}
             searchPhrase={searchPhrase}
             data={productsList}
             setFocused={setFocused}
@@ -77,10 +83,13 @@ export const Products = () => {
               {
                 productsCtg.length > 0
                   ? (
-                    <View style={styles.products_container}>
+                    <View style={styles.productsList_container}>
                       {productsCtg.map((item) => {
                         return (
-                          <TouchableOpacity key={item._id.$oid}>
+                          <TouchableOpacity
+                            key={item._id.$oid}
+                            onPress={() => navigateToProductDetails(item)}
+                          >
                             <View style={styles.productCard_wrapper}>
                               <ProductCard {...item} />
                             </View>

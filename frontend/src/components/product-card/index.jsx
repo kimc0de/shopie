@@ -5,6 +5,8 @@ import {
   Button,
 } from 'react-native';
 
+import {DEFAULT_IMAGE} from '../../components/product-card/constants';
+
 import {styles} from './styles';
 
 export const ProductCard = (props) => {
@@ -22,7 +24,7 @@ export const ProductCard = (props) => {
       <Image
         style={styles.productCard_image}
         resizeMode='contain'
-        source={{uri: image ? image: 'https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png'}}
+        source={{uri: image ? image: DEFAULT_IMAGE}}
       />
       <View style={styles.productCard_info}/>
         <Text style={styles.productCard_title}>

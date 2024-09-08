@@ -4,13 +4,18 @@ import {
   View,
   FlatList,
   SafeAreaView,
+  TouchableOpacity,
   Image
 } from "react-native";
 
 import {styles} from "./styles";
+import {PRODUCT_DETAILS} from '../../routes';
 
 const Item = ({ name, details, image }) => (
-  <View style={styles.productSearch_item}>
+  <TouchableOpacity
+    style={styles.productSearch_item}
+    onPress={() => props.navigation.navigate(PRODUCT_DETAILS, {item})}
+  >
     <Image
       style={styles.productSearch_image}
       resizeMode='contain'
@@ -20,7 +25,7 @@ const Item = ({ name, details, image }) => (
       <Text style={styles.productSearch_title}>{name}</Text>
       <Text style={styles.productSearch_details}>{details}</Text>
     </View>
-  </View>
+  </TouchableOpacity >
 );
 
 const keyExtractor = (item) => item.name;

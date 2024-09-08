@@ -6,9 +6,9 @@ const {width, height} = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   products: {
-    marginTop: Space.SPACE_1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'white',
   },
   products_section: {
     flex: 1,
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
     width: width / 2,
     alignItems: 'center',
   },
-  products_container: {
+  productsList_container: {
     flex: 1,
     flexDirection: "row",
     alignItems: "flex-start",
