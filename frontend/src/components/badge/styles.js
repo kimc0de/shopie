@@ -25,6 +25,9 @@ const badge_label= {
 };
 
 export const styles = StyleSheet.create({
+  badge: {
+    ...badge,
+  },
   badge__active: {
     ...badge,
     backgroundColor: 'black',

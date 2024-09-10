@@ -10,10 +10,10 @@ import {
 export const styles = StyleSheet.create({
   cartItem_container: {
     flexDirection: "row",
-    marginHorizontal: Space.SPACE_2,
-    paddingVertical: Space.SPACE_2,
+    padding: Space.SPACE_2,
     borderBottomWidth: 1,
-    borderBottomColor: "lightgrey"
+    borderBottomColor: "lightgrey",
+    backgroundColor: "#f1f1f1", // background need to be set for remove button to be hidden
   },
   cartItem_content: {
     flex: 1,

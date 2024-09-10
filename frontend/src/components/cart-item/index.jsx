@@ -1,11 +1,13 @@
-import {Image, Text, View} from 'react-native';
+import {
+  Image,
+  Text,
+  View,
+} from 'react-native';
 
 import {styles} from './styles';
 
 export const CartItem = ({
-  name,
-  price,
-  image,
+  product
 }) => {
   return (
     <View
@@ -14,11 +16,11 @@ export const CartItem = ({
       <Image
         style={styles.cartItem_image}
         resizeMode='contain'
-        source={{uri: image ? image: 'https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png'}}
+        source={{uri: product.image ? product.image: 'https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png'}}
       />
       <View style={styles.cartItem_content}>
-        <Text style={styles.cartItem_name}>{name}</Text>
-        <Text style={styles.cartItem_price}>${price}</Text>
+        <Text style={styles.cartItem_name}>{product.name}</Text>
+        <Text style={styles.cartItem_price}>${product.price}</Text>
       </View>
     </View >
   )

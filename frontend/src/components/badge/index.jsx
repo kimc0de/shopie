@@ -7,7 +7,11 @@ import {styles} from './styles';
 
 export const Badge = (props) => {
   return (
-    <View style={props.active ? styles.badge__active : styles.badge__inactive}>
+    <View style={[
+      styles.badge,
+      props.active ? styles.badge__active : styles.badge__inactive,
+      props.style]}
+    >
       <Text
         numberOfLines={1}
         style={
