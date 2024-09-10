@@ -43,6 +43,7 @@ export const Checkout = (props) => {
 
   return (
     <KeyboardAwareScrollView
+      contentContainerStyle={styles.checkout_container}
       extraHeight={200}
       viewIsInsideTabBar
       enableOnAndroid

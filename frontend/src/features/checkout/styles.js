@@ -4,9 +4,14 @@ import {
 } from '../../styles';
 
 export const styles = StyleSheet.create({
+  checkout_container: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
   checkout_confirmation: {
     alignItems: 'center',
     justifyContent: 'center',
+    padding: Space.SPACE_2,
   },
   checkout_countryPicker: {
     width: '90%',
