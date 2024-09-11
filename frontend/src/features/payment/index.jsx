@@ -4,13 +4,14 @@ import {
   View
 } from 'react-native';
 import {useState} from 'react';
+import {Feather} from '@expo/vector-icons';
 
 import {
   paymentCards,
   payments,
 } from '../../../assets/data/payments';
 import {styles} from './styles';
-import {Feather} from '@expo/vector-icons';
+import {CONFIRM} from '../../routes';
 
 export const Payment = (props) => {
   const order = props.route.params;
@@ -24,8 +25,8 @@ export const Payment = (props) => {
       <Text style={styles.payment_title}>
         Choose your payment method
       </Text>
-        {payments.map((payment) => (
-          <View style={styles.payment_methods}>
+        {payments.map((payment, index) => (
+          <View style={styles.payment_methods} key={index}>
             <Button
               style={styles.payment_button}
               key={payment.value}
@@ -43,8 +44,8 @@ export const Payment = (props) => {
         ))}
       {selectedPayment === 3 ? (
         <View>
-          {paymentCards.map((card) => (
-            <View style={styles.payment_cards}>
+          {paymentCards.map((card, index) => (
+            <View style={styles.payment_cards} key={index}>
             <Button
               key={card.value}
               title={card.name}
@@ -62,7 +63,7 @@ export const Payment = (props) => {
       <View style={styles.payment_confirmation}>
         <Button
           title="Confirm"
-          onPress={() => props.navigation.navigate('Confirm', order)}
+          onPress={() => props.navigation.navigate(CONFIRM, {order})}
         />
       </View>
     </View>

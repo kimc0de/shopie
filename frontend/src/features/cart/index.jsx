@@ -15,6 +15,7 @@ import * as actions from './actions';
 
 const mapStateToProps = (state) => {
   const {cartItems} = state;
+
   return {cartItems: cartItems};
 }
 

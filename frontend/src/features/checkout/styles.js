@@ -1,6 +1,7 @@
 import {StyleSheet} from 'react-native';
 import {
-  BorderRadius, Space,
+  BorderRadius,
+  Space,
 } from '../../styles';
 
 export const styles = StyleSheet.create({

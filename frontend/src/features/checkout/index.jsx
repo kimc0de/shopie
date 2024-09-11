@@ -12,8 +12,9 @@ import {Form} from '../../components/form';
 import {Input} from '../../components/input';
 import {countries} from '../../../assets/data/countries';
 import {styles} from './styles';
+import {PAYMENT} from '../../routes';
 
-export const Checkout = (props) => {
+const BaseCheckout = (props) => {
   const [orderItems, setOrderItems] = useState();
   const [address, setAddress] = useState();
   const [address2, setAddress2] = useState();
@@ -23,18 +24,26 @@ export const Checkout = (props) => {
   const [phone, setPhone] = useState();
 
   const checkout = () => {
+    const serializableOrderItems = orderItems.map(item => ({
+      ...item,
+      product: {
+        ...item.product,
+        addItemToCart: undefined, // Remove the non-serializable function
+      }
+    }));
+
     let order = {
       city,
       country,
       dateOrdered: Date.now(),
-      orderItems,
+      orderItems: serializableOrderItems,
       phone,
       shippingAddress1: address,
       shippingAddress2: address2,
       zip,
     }
 
-    props.navigation.navigate('Payment', {order: order});
+    props.navigation.navigate(PAYMENT, {order});
   };
 
   useEffect(() => {
@@ -129,4 +138,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps)(Checkout);
+export const Checkout = connect(mapStateToProps)(BaseCheckout);
