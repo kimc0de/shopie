@@ -5,7 +5,7 @@ import {
 
 import {styles} from './styles';
 
-const imageSource = require('../../../assets/images/logo.png');
+const imageSource = require('../../../assets/images/logo_1.png');
 
 export const Header = () => {
   return (
