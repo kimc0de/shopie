@@ -1,19 +1,18 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useCallback} from 'react';
 import {
   View,
   TouchableOpacity,
   ScrollView,
   Text,
 } from 'react-native';
-
-import {products} from '../../../assets/data/products';
-import {categories} from '../../../assets/data/categories';
+import {useFocusEffect} from '@react-navigation/native';
 import {SearchBar} from '../../components/search-input';
 import {ProductSearch} from '../../components/search-product';
 import {Highlights} from '../../components/highlight';
 import {ProductCard} from '../../components/product-card';
 import {Category} from '../../components/category';
 import {PRODUCT_DETAILS} from '../../routes';
+import {getAllProducts, getAllCategories} from '../../api';
 
 import {styles} from './styles';
 
@@ -26,13 +25,29 @@ export const Products = (props) => {
   const [initialState, setInitialState] = useState([]);
   const [productsCtg, setProductsCtg] = useState([]);
 
-  useEffect(() => {
-    setProductsList(products);
-    setCategoriesList(categories);
-    setActive(-1);
-    setInitialState(products);
-    setProductsCtg(products);
-  }, []);
+  useFocusEffect((
+    useCallback(
+      () => {
+        setFocused(false);
+        setActive(-1);
+
+        getAllCategories().then((res) => {
+          setCategoriesList(res.data);
+        }).catch((err) => {
+          console.log(err);
+        });
+
+        getAllProducts().then((res) => {
+          setProductsList(res.data);
+          setInitialState(res.data);
+          setProductsCtg(res.data);
+          setInitialState(res.data);
+        }).catch((err) => {
+          console.log(err);
+        });
+      },
+      [],)
+  ))
 
   const changeCategory = (ctg) => {
     {
@@ -40,7 +55,7 @@ export const Products = (props) => {
         ? [setProductsCtg(initialState), setActive(-1)]
         : [
           setProductsCtg(
-            products.filter((i) => i.category.$oid === ctg),
+            productsList.filter((i) => i.category._id === ctg),
             setActive(true)
           ),
         ];
@@ -87,7 +102,7 @@ export const Products = (props) => {
                       {productsCtg.map((item) => {
                         return (
                           <TouchableOpacity
-                            key={item._id.$oid}
+                            key={`${item.name}-${item._id}`}
                             onPress={() => navigateToProductDetails(item)}
                           >
                             <View style={styles.productCard_wrapper}>
