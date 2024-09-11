@@ -36,11 +36,11 @@ export const ProductSearch = ({ searchPhrase, setFocused, data }) => {
       return <Item name={item.name} details={item.description} image={item.image}/>;
     }
     // filter of the name
-    if (item.name.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, ""))) {
+    if (item.name?.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, ""))) {
       return <Item name={item.name} details={item.description} image={item.image}/>;
     }
     // filter of the description
-    if (item.description.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, ""))) {
+    if (item.description?.toUpperCase().includes(searchPhrase.toUpperCase().trim().replace(/\s/g, ""))) {
       return <Item name={item.name} details={item.description} image={item.image}/>;
     }
   };

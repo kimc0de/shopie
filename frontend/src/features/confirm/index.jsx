@@ -8,8 +8,9 @@ import {
 import {connect} from 'react-redux';
 
 import * as actions from '../../features/cart/actions';
-import {styles} from './styles';
+import {CartItem} from '../../components/cart-item';
 import {CART} from '../../routes';
+import {styles} from './styles';
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -31,33 +32,30 @@ const BaseConfirm = (props) => {
 
   return (
     <ScrollView contentContainerStyle={styles.confirm_container}>
-      <View style={styles.confirm_title_container}>
-        <Text style={styles.confirm_title}>Confirm Order</Text>
-        {props.route.params ? (
-          <View style={styles.confirm_body}>
-            <Text style={styles.confirm_info_title}>Shipping to</Text>
+        <View style={styles.confirm_body}>
+          <Text style={styles.confirm_title}>Confirm Order</Text>
+          {confirm ? (
             <View>
-              <Text>Address: {order.shippingAddress1}</Text>
-              <Text>Additional address: {order.shippingAddress2}</Text>
-              <Text>City: {order.city}</Text>
-              <Text>Zip code: {order.zip}</Text>
-              <Text>Country: {order.country}</Text>
+              <Text style={styles.confirm_info_title}>Shipping to:</Text>
+              <View>
+                <Text>Address: {order.shippingAddress1}</Text>
+                <Text>Additional address: {order.shippingAddress2}</Text>
+                <Text>City: {order.city}</Text>
+                <Text>Zip code: {order.zip}</Text>
+                <Text>Country: {order.country}</Text>
+              </View>
+              <Text style={styles.confirm_info_title}>Items:</Text>
+              {items.map((item, index) => {
+                return (
+                  <CartItem key={`${item.product.name}-${index}`} product={item.product}/>
+                )
+              })}
             </View>
-            <Text style={styles.confirm_info_title}>Items</Text>
-            {items.map((item) => {
-              return (
-                <View style={styles.confirm_listItems} key={item.product.name}>
-                  <Image source={{uri: item.product.image}}/>
-                  <Text>{item.product.name} x {item.quantity}</Text>
-                </View>
-              )
-            })}
-          </View>
-        ) : null}
-        <View>
+          ) : null}
+        </View>
+        <View style={styles.confirm_placeOrderButton}>
           <Button title='Place order' onPress={() => confirmOrder()} />
         </View>
-      </View>
     </ScrollView>
   );
 }

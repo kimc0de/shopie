@@ -1,5 +1,6 @@
 import {StyleSheet, Dimensions} from 'react-native';
 import {
+  BorderRadius,
   FontSize,
   FontStyle,
   Space,
@@ -9,32 +10,33 @@ const {height} = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   confirm_container: {
+    flex: 1,
     height: height,
-    alignContent: 'center',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     backgroundColor: 'white',
   },
-  confirm_title_container:{
-    // backgroundColor: 'red',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   confirm_title: {
+    alignSelf: 'center',
     fontSize: FontSize.SMALL_3,
     fontWeight: FontStyle.BOLD,
-    padding: Space.SPACE_2,
   },
   confirm_body: {
+    width: '90%',
     gap: Space.SPACE_1,
+    margin: Space.SPACE_2,
     padding: Space.SPACE_2,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: 'gray',
+    borderRadius: BorderRadius.SMALL,
   },
   confirm_info_title: {
-    alignSelf: 'center',
+    paddingBottom: Space.SPACE_2,
+    paddingTop: Space.SPACE_1,
     fontSize: FontSize.SMALL_2,
     fontWeight: FontStyle.BOLD,
   },
-  confirm_listItems: {
-
+  confirm_placeOrderButton: {
+    padding: Space.SPACE_2,
   }
 });
