@@ -15,7 +15,7 @@ import {Input} from '../../components/input';
 import {Error} from '../../components/error';
 import {AuthGlobal} from '../../features/auth/global';
 import {loginUser} from '../../features/auth/actions';
-import {HOME, REGISTER} from '../../routes';
+import {PROFILE, REGISTER} from '../../routes';
 
 import {styles} from './styles';
 
@@ -27,7 +27,7 @@ export const Login = (props) => {
 
   useEffect(() => {
     if (context.stateUser.isAuthenticated === true) {
-      props.navigation.navigate(HOME);
+      props.navigation.navigate(PROFILE);
     }
   }, [context.stateUser.isAuthenticated]);
 

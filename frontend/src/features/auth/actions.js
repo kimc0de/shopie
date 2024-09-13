@@ -46,13 +46,7 @@ export const loginUser = (user, dispatch) => {
     });
 };
 
-export const getUserProfile = (id) => {
-  getUserById(id)
-    .then((res) => res.json())
-    .then((data) => console.log(data))
-}
-
-export const logoutUser = (dispatch) => {
+export const logout = (dispatch) => {
   AsyncStorage.removeItem('jwt');
   dispatch(setCurrentUser({}));
 }
