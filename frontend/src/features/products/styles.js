@@ -29,5 +29,11 @@ export const styles = StyleSheet.create({
   products_notfound: {
     justifyContent: 'center',
     height: height / 2,
+  },
+  products_loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f2f2f2',
   }
 });

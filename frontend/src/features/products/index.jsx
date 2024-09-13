@@ -1,5 +1,6 @@
 import React, {useState, useCallback} from 'react';
 import {
+  ActivityIndicator,
   View,
   TouchableOpacity,
   ScrollView,
@@ -24,6 +25,7 @@ export const Products = (props) => {
   const [active, setActive] = useState(-1);
   const [initialState, setInitialState] = useState([]);
   const [productsCtg, setProductsCtg] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useFocusEffect((
     useCallback(
@@ -42,6 +44,7 @@ export const Products = (props) => {
           setInitialState(res.data);
           setProductsCtg(res.data);
           setInitialState(res.data);
+          setIsLoading(false);
         }).catch((err) => {
           console.log(err);
         });
@@ -67,6 +70,8 @@ export const Products = (props) => {
   };
 
   return (
+    <>
+      {!isLoading ? (
     <View style={styles.products}>
       <View>
         <SearchBar
@@ -124,5 +129,12 @@ export const Products = (props) => {
         )
       }
     </View>
+        ) : (
+          <View style={styles.products_loadingContainer}>
+            <ActivityIndicator size="large" color="black"/>
+          </View>
+        )
+      }
+    </>
   );
 };
