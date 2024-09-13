@@ -5,9 +5,11 @@ import {
   Button,
 } from 'react-native';
 import {connect} from 'react-redux';
+import Toast from 'react-native-toast-message';
 
 import {DEFAULT_IMAGE} from '../../components/product-card/constants';
 import * as actions from '../../features/cart/actions';
+import {TOAST_OFFSET} from '../../components/toast/constants';
 
 import {styles} from './styles';
 
@@ -41,6 +43,12 @@ const BaseProductCard = (props) => {
                 color='blue'
                 onPress={() => {
                   props.addItemToCart(props);
+                  Toast.show({
+                    topOffset: TOAST_OFFSET,
+                    type: 'success',
+                    text1: `${name} added to cart`,
+                    text2: 'View cart to checkout',
+                  });
                 }}
               />
             </View>

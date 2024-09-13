@@ -7,15 +7,16 @@ import {
 } from 'react-native';
 import {useState} from 'react';
 import {connect} from 'react-redux';
+import Toast from 'react-native-toast-message';
 
 import {DEFAULT_IMAGE} from '../../components/product-card/constants';
 import * as actions from '../../features/cart/actions';
+import {TOAST_OFFSET} from '../../components/toast/constants';
 
 import {styles} from './styles';
 
 const BaseProductDetails = (props) => {
-  const [item, setItem] = useState(props.route.params.item);
-  const [availability, setAvailability] = useState(null);
+  const [item, _] = useState(props.route.params.item);
 
   return (
     <View style={styles.productDetails_container}>
@@ -45,6 +46,12 @@ const BaseProductDetails = (props) => {
             color={'blue'}
             onPress={() => {
               props.addItemToCart(item);
+              Toast.show({
+                topOffset: TOAST_OFFSET,
+                type: 'success',
+                text1: `${item.name} added to cart`,
+                text2: 'View cart to checkout',
+              });
             }}
           />
       </View>

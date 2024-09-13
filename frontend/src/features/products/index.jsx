@@ -7,6 +7,7 @@ import {
   Text,
 } from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
+
 import {SearchBar} from '../../components/search-input';
 import {ProductSearch} from '../../components/search-product';
 import {Highlights} from '../../components/highlight';
