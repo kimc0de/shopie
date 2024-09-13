@@ -2,8 +2,8 @@ import axios from 'axios';
 
 import {baseUrl} from '../../assets/common/baseUrl';
 
-export const login = async () => {
-  return axios.get(`${baseUrl}/users/login`);
+export const getUserById = async (id) => {
+  return axios.get(`${baseUrl}/users/${id}`);
 }
 
 export const register = async (user) => {

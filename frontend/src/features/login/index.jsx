@@ -1,4 +1,9 @@
-import {useState, useCallback} from 'react';
+import {
+  useEffect,
+  useState,
+  useCallback,
+  useContext
+} from 'react';
 import {
   View,
   Text,
@@ -8,14 +13,23 @@ import {
 import {Form} from '../../components/form';
 import {Input} from '../../components/input';
 import {Error} from '../../components/error';
-import {REGISTER} from '../../routes';
+import {AuthGlobal} from '../../features/auth/global';
+import {loginUser} from '../../features/auth/actions';
+import {HOME, REGISTER} from '../../routes';
 
 import {styles} from './styles';
 
 export const Login = (props) => {
+  const context = useContext(AuthGlobal);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (context.stateUser.isAuthenticated === true) {
+      props.navigation.navigate(HOME);
+    }
+  }, [context.stateUser.isAuthenticated]);
 
   const handleEmailChange = useCallback((text) => {
     setEmail(text.toLowerCase());
@@ -26,13 +40,16 @@ export const Login = (props) => {
   }, []);
 
   const handleSubmit = useCallback(() => {
-    // @todo: add login functionality
+    const user = {
+      email,
+      password
+    }
 
     if (email === '' || password === '') {
       setError('Please fill in all fields');
     } else {
       setError('');
-      console.log('success');
+      loginUser(user, context.dispatch);
     }
   },[email, password]);
 
