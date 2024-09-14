@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 
 import {
+  BorderRadius,
   Space,
 } from '../../styles';
 
@@ -35,4 +36,31 @@ export const styles = StyleSheet.create({
     width: width / 4,
     height: 50,
   },
+  modal_container: {
+    alignSelf: 'flex-end',
+    position: 'absolute',
+    top: 5,
+    right: 10,
+  },
+  modal_wrapper: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: Space.SPACE_4,
+  },
+  modal_view: {
+    margin: Space.SPACE_4,
+    backgroundColor: "white",
+    borderRadius: BorderRadius.SMALL,
+    padding: Space.SPACE_5,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5
+  }
 });

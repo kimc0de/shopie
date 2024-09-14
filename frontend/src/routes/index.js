@@ -11,3 +11,4 @@ export const SHIPPING = 'shipping';
 export const ADMIN_PRODUCTS = 'admin-products';
 export const ADMIN_ORDERS = 'admin-orders';
 export const ADMIN_CATEGORIES = 'admin-categories';
+export const PRODUCT_FORM = 'product-form';
