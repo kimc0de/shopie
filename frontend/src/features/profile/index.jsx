@@ -10,7 +10,7 @@ import {
   useState,
 } from 'react';
 import {useFocusEffect} from '@react-navigation/native';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 
 import {AuthGlobal} from '../../features/auth/global';

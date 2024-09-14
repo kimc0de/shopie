@@ -4,7 +4,7 @@ import {
   useState,
 } from 'react';
 import {jwtDecode} from 'jwt-decode';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {authReducer} from './reducer';
 import {setCurrentUser} from './actions';

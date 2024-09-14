@@ -22,9 +22,27 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 .xcode.env.local
+*.xcodeproj
+*.xcscmblueprint
+*.xcworkspace
+*.app.dSYM.zip
+*.log
+*.xcarchive
+*Info.plist
+Resources/Fonts
 
 # Bundle artifacts
 *.jsbundle
 
 # CocoaPods
 /Pods/
+
+# Homebrew
+Brewfile.lock.json
+
+# Ruby
+vendor/
+
+# Fastlane
+**/fastlane/report.xml
+
