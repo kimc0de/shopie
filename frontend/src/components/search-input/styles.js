@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
   searchBar_container: {
     marginVertical: Space.SPACE_1,
     alignItems: "center",
+    justifyContent: "center",
     flexDirection: "row",
     width: "90%",
   },

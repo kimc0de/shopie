@@ -74,14 +74,12 @@ export const Products = (props) => {
     <>
       {!isLoading ? (
     <View style={styles.products}>
-      <View>
-        <SearchBar
-          searchPhrase={searchPhrase}
-          setSearchPhrase={setSearchPhrase}
-          focused={focused}
-          setFocused={setFocused}
-        />
-      </View>
+      <SearchBar
+        searchPhrase={searchPhrase}
+        setSearchPhrase={setSearchPhrase}
+        focused={focused}
+        setFocused={setFocused}
+      />
       {
         focused ? (
           <ProductSearch
