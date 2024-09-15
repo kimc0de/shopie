@@ -17,7 +17,7 @@ import mime from "mime";
 import {Form} from '../../../components/form';
 import {Button} from '../../../components/button';
 import * as enums from '../../../components/button/enums';
-import {DEFAULT_IMAGE} from '../../../components/product-card/constants';
+import {DEFAULT_IMAGE} from '../../../components/image/constants';
 import {Input} from '../../../components/input';
 import {TOAST_OFFSET} from '../../../components/toast/constants';
 import {createProduct, updateProduct, getAllCategories} from '../../../api';

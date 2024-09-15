@@ -12,6 +12,7 @@ import Icon from '@expo/vector-icons/FontAwesome';
 import {PRODUCT_DETAILS, ADMIN_PRODUCT_FORM} from '../../routes';
 import {Button} from '../button';
 import * as enums from '../button/enums';
+import {DEFAULT_IMAGE} from '../image/constants';
 
 import {styles} from './styles';
 
@@ -64,7 +65,7 @@ export const ListItem = (props) => {
         <Image
           style={styles.listItem_image}
           resizeMode='contain'
-          source={{uri: props.image ? props.image: 'https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png'}}
+          source={{uri: props.image ? props.image: DEFAULT_IMAGE}}
         />
         <Text numberOfLines={1} style={styles.listItem_itemName}>{props.name}</Text>
         <Text numberOfLines={1}  style={styles.listItem_item}>{props.category.name}</Text>

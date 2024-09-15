@@ -6,7 +6,7 @@ import {
 import {connect} from 'react-redux';
 import Toast from 'react-native-toast-message';
 
-import {DEFAULT_IMAGE} from '../../components/product-card/constants';
+import {DEFAULT_IMAGE} from '../../components/image/constants';
 import {Button} from '../../components/button';
 import * as enums from '../../components/button/enums';
 import * as actions from '../../features/cart/actions';

@@ -8,7 +8,7 @@ import {useState} from 'react';
 import {connect} from 'react-redux';
 import Toast from 'react-native-toast-message';
 
-import {DEFAULT_IMAGE} from '../../components/product-card/constants';
+import {DEFAULT_IMAGE} from '../../components/image/constants';
 import {Button} from '../../components/button';
 import * as actions from '../../features/cart/actions';
 import {TOAST_OFFSET} from '../../components/toast/constants';
@@ -18,6 +18,7 @@ import {styles} from './styles';
 const BaseProductDetails = (props) => {
   const [item, _] = useState(props.route.params.item);
 
+  console.log(item);
   return (
     <View style={styles.productDetails_container}>
       <ScrollView>
