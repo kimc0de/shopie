@@ -9,7 +9,7 @@ A simple MERN stack e-commerce application
 2. Create a `.env` file in the backend directory of the project
 3. Add the following environment variables to the `.env` file
 ```
-MONGO_URI=your_mongo_uri
+MONGODB=your_mongo_uri
 API_URL=/api/v1
 SECRET=your_jwt_secret
 ```

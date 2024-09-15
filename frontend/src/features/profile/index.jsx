@@ -1,5 +1,4 @@
 import {
-  Button,
   View,
   Text,
   ScrollView,
@@ -18,6 +17,8 @@ import {logout} from '../../features/auth/actions';
 import {baseUrl} from '../../../assets/common/baseUrl';
 import {LOGIN} from '../../routes';
 import {TOAST_OFFSET} from '../../components/toast/constants';
+import {Button} from '../../components/button';
+import * as enums from '../../components/button/enums';
 
 import {styles} from './styles';
 import Toast from 'react-native-toast-message';
@@ -73,10 +74,14 @@ export const Profile = (props) => {
           </Text>
         </View>
         <View style={styles.profile_logoutBtn}>
-          <Button title={"Sign Out"} onPress={() => [
-            AsyncStorage.removeItem("jwt"),
-            logout(context.dispatch)
-          ]}/>
+          <Button
+            type={enums.SECONDARY}
+            title="Log Out"
+            onPress={() => [
+              AsyncStorage.removeItem("jwt"),
+              logout(context.dispatch)
+            ]}
+          />
         </View>
       </ScrollView>
     </View>

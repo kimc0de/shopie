@@ -7,9 +7,10 @@ import {
 import {
   View,
   Text,
-  Button,
 } from 'react-native';
 
+import {Button} from '../../components/button';
+import * as enums from '../../components/button/enums';
 import {Form} from '../../components/form';
 import {Input} from '../../components/input';
 import {Error} from '../../components/error';
@@ -76,7 +77,7 @@ export const Login = (props) => {
       </View>
       <View style={styles.login_buttonGroup_2}>
         <Text style={styles.login_registerText}>Don't have an account?</Text>
-        <Button title="Register" onPress={() => props.navigation.navigate(REGISTER)} />
+        <Button title="Register" type={enums.SECONDARY} onPress={() => props.navigation.navigate(REGISTER)} />
       </View>
     </Form>
   );

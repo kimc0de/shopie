@@ -2,12 +2,13 @@ import {
   View,
   Image,
   Text,
-  Button,
 } from 'react-native';
 import {connect} from 'react-redux';
 import Toast from 'react-native-toast-message';
 
 import {DEFAULT_IMAGE} from '../../components/product-card/constants';
+import {Button} from '../../components/button';
+import * as enums from '../../components/button/enums';
 import * as actions from '../../features/cart/actions';
 import {TOAST_OFFSET} from '../../components/toast/constants';
 
@@ -40,7 +41,7 @@ const BaseProductCard = (props) => {
             <View style={styles.productCard_add}>
               <Button
                 title='Add'
-                color='blue'
+                size={enums.SMALL}
                 onPress={() => {
                   props.addItemToCart(props);
                   Toast.show({

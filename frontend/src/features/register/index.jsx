@@ -2,7 +2,6 @@ import {useCallback, useState} from 'react';
 import {
   View,
   Text,
-  Button,
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import Toast from 'react-native-toast-message';
@@ -11,6 +10,8 @@ import {register} from '../../api';
 import {Form} from '../../components/form';
 import {Input} from '../../components/input';
 import {Error} from '../../components/error';
+import {Button} from '../../components/button';
+import * as enums from '../../components/button/enums';
 import {LOGIN} from '../../routes';
 
 import {styles} from './styles';
@@ -112,11 +113,18 @@ export const Register = (props) => {
         />
         <View style={styles.register_buttonGroup_1}>
           {error ? <Error message={error} /> : null}
-          <Button title="Register" onPress={handleSubmit} />
+          <Button
+            title="Register"
+            onPress={handleSubmit}
+          />
         </View>
         <View style={styles.register_buttonGroup_2}>
           <Text style={styles.register_loginText}>Already have an account?</Text>
-          <Button title="Login" onPress={() => props.navigation.navigate(LOGIN)} />
+          <Button
+            type={enums.SECONDARY}
+            title="Login"
+            onPress={() => props.navigation.navigate(LOGIN)}
+          />
         </View>
       </Form>
     </KeyboardAwareScrollView>

@@ -1,5 +1,4 @@
 import {
-  Button,
   Image,
   Modal,
   Text,
@@ -11,6 +10,7 @@ import {useState} from 'react';
 import Icon from '@expo/vector-icons/FontAwesome';
 
 import {PRODUCT_DETAILS, PRODUCT_FORM} from '../../routes';
+import {Button} from '../button';
 
 import {styles} from './styles';
 

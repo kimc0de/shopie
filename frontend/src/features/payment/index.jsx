@@ -1,5 +1,4 @@
 import {
-  Button,
   Text,
   View
 } from 'react-native';
@@ -10,6 +9,8 @@ import {
   paymentCards,
   payments,
 } from '../../../assets/data/payments';
+import {Button} from '../../components/button';
+import * as enums from '../../components/button/enums';
 import {styles} from './styles';
 import {CONFIRM} from '../../routes';
 
@@ -28,6 +29,7 @@ export const Payment = (props) => {
         {payments.map((payment, index) => (
           <View style={styles.payment_methods} key={index}>
             <Button
+              type={enums.LINK}
               style={styles.payment_button}
               key={payment.value}
               title={payment.name}
@@ -47,6 +49,7 @@ export const Payment = (props) => {
           {paymentCards.map((card, index) => (
             <View style={styles.payment_cards} key={index}>
             <Button
+              type={enums.LINK}
               key={card.value}
               title={card.name}
               onPress={() => setSelectedCard(card.value)}

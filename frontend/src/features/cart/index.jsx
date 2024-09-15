@@ -1,6 +1,6 @@
 import {
-  Button,
-  Text, TouchableOpacity,
+  Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import {connect} from 'react-redux';
@@ -9,6 +9,8 @@ import Icon from '@expo/vector-icons/FontAwesome';
 
 import {CartItem} from '../../components/cart-item';
 import {CHECKOUT} from '../../routes';
+import {Button} from '../../components/button';
+import * as enums from '../../components/button/enums';
 
 import {styles} from './styles';
 import * as actions from './actions';
@@ -70,7 +72,7 @@ const BaseCart = (props) => {
         }
         <View style={styles.cart_bottomContainer}>
           <View>
-            <Button title='Clear' onPress={() => props.clearCart()}/>
+            <Button title='Clear' type={enums.SECONDARY} onPress={() => props.clearCart()}/>
           </View>
           <View style={styles.cart_bottomRightContainer}>
             <Text style={styles.cart_totalPrice}>${total}</Text>

@@ -1,13 +1,11 @@
 import {useEffect, useState} from 'react';
-import {
-  Button,
-  View,
-} from 'react-native';
+import {View} from 'react-native';
 import {Item, Picker} from "native-base";
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {connect} from 'react-redux';
 import Octicons from '@expo/vector-icons/Octicons';
 
+import {Button} from '../../components/button';
 import {Form} from '../../components/form';
 import {Input} from '../../components/input';
 import {countries} from '../../../assets/data/countries';
@@ -51,12 +49,7 @@ const BaseCheckout = (props) => {
   }, []);
 
   return (
-    <KeyboardAwareScrollView
-      contentContainerStyle={styles.checkout_container}
-      extraHeight={200}
-      viewIsInsideTabBar
-      enableOnAndroid
-    >
+    <View style={styles.checkout_container}>
       <Form title="Shipping Address">
         <Input
           placeholder="Phone"
@@ -127,7 +120,7 @@ const BaseCheckout = (props) => {
       <View style={styles.checkout_confirmation}>
         <Button title='Confirm' onPress={() => checkout()} />
       </View>
-    </KeyboardAwareScrollView>
+    </View>
   )
 }
 

@@ -3,13 +3,14 @@ import {
   TextInput,
   View,
   Keyboard,
-  Button
 } from "react-native";
 import {
   Feather,
   Entypo
 } from "@expo/vector-icons";
 
+import {Button} from "../button";
+import * as enums from "../button/enums";
 import {styles} from "./styles";
 
 export const SearchBar = ({focused, searchPhrase, setSearchPhrase, setFocused}) => {
@@ -53,6 +54,8 @@ export const SearchBar = ({focused, searchPhrase, setSearchPhrase, setFocused}) 
         <View style={styles.searchBar_cancelButton}>
           <Button
             title="Cancel"
+            size={enums.SMALL}
+            type={enums.SECONDARY}
             onPress={() => {
               Keyboard.dismiss();
               setFocused(false);

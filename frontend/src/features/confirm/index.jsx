@@ -1,13 +1,12 @@
 import {
-  Button,
   Text,
   View,
-  Image,
   ScrollView,
 } from 'react-native';
 import {connect} from 'react-redux';
 
 import * as actions from '../../features/cart/actions';
+import {Button} from '../../components/button';
 import {CartItem} from '../../components/cart-item';
 import {CART} from '../../routes';
 import {styles} from './styles';

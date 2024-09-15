@@ -31,6 +31,8 @@ export const styles = StyleSheet.create({
     marginVertical: Space.SPACE_2,
   },
   payment_confirmation: {
+    alignItems: 'center',
+    justifyContent: 'center',
     padding: Space.SPACE_2,
   }
 });

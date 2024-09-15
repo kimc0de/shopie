@@ -45,6 +45,6 @@ export const styles = StyleSheet.create({
     height: toDp(20),
   },
   searchBar_cancelButton: {
-    marginLeft: Space.SPACE_2,
+    marginLeft: Space.SPACE_HALF,
   }
 });

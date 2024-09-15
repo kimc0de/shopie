@@ -1,5 +1,4 @@
 import {
-  Button,
   Image,
   View,
   Text,
@@ -10,6 +9,7 @@ import {connect} from 'react-redux';
 import Toast from 'react-native-toast-message';
 
 import {DEFAULT_IMAGE} from '../../components/product-card/constants';
+import {Button} from '../../components/button';
 import * as actions from '../../features/cart/actions';
 import {TOAST_OFFSET} from '../../components/toast/constants';
 
@@ -53,8 +53,7 @@ const BaseProductDetails = (props) => {
             ${item.price}
           </Text>
           <Button
-            title='Add'
-            color={'blue'}
+            title='Add to cart'
             onPress={() => {
               props.addItemToCart(item);
               Toast.show({
