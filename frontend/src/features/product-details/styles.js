@@ -47,4 +47,10 @@ export const styles = StyleSheet.create({
     fontSize: FontSize.MEDIUM_2,
     color: 'red',
   },
+  productDetails_details: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: Space.SPACE_2,
+    marginHorizontal: Space.SPACE_3,
+  }
 });

@@ -36,6 +36,17 @@ const BaseProductDetails = (props) => {
             {item.brand}
           </Text>
         </View>
+        <View style={styles.productDetails_details}>
+          <Text>
+            Availability: {item.countInStock}
+          </Text>
+          <Text>
+            Rating: {item.rating}/5
+          </Text>
+          <Text>
+            {item.description}
+          </Text>
+        </View>
       </ScrollView>
       <View style={styles.productDetails_bottomContainer}>
           <Text style={styles.productDetails_itemPrice}>
