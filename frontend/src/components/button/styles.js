@@ -9,6 +9,8 @@ const {width} = Dimensions.get('window');
 
 export default StyleSheet.create({
   button: {
+    flexDirection: 'row',
+    gap: Space.SPACE_1,
     margin: Space.SPACE_1,
     borderRadius: BorderRadius.SMALL,
     alignItems: 'center',

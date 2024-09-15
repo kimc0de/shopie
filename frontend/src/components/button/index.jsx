@@ -7,7 +7,7 @@ import {
 import * as enums from './enums';
 import styles from './styles';
 
-export const Button = ({ title, type = enums.PRIMARY, size = enums.MEDIUM, onPress }) => {
+export const Button = ({ title, type = enums.PRIMARY, size = enums.MEDIUM, onPress, children }) => {
   const isPrimary = type === enums.PRIMARY;
   const isSecondary = type === enums.SECONDARY;
   const isDanger = type === enums.DANGER;
@@ -33,6 +33,7 @@ export const Button = ({ title, type = enums.PRIMARY, size = enums.MEDIUM, onPre
       ]}
       onPress={onPress}
     >
+      {children}
       <Text style={ [
         styles.text,
         (isSecondary || isLink) ? styles.darkText : styles.lightText,
