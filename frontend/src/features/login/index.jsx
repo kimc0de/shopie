@@ -55,7 +55,7 @@ export const Login = (props) => {
   },[email, password]);
 
   return (
-    <Form title="Login" style={styles.login_container} title_style={styles.login_title}>
+    <Form title="Login" title_style={styles.login_title}>
       <Input
         placeholder="Email"
         value={email}

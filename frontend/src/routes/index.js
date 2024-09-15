@@ -8,7 +8,8 @@ export const PRODUCT_DETAILS = 'product-details';
 export const PROFILE = 'profile';
 export const REGISTER = 'register';
 export const SHIPPING = 'shipping';
-export const ADMIN_PRODUCTS = 'admin-products';
-export const ADMIN_ORDERS = 'admin-orders';
-export const ADMIN_CATEGORIES = 'admin-categories';
-export const PRODUCT_FORM = 'product-form';
+export const ADMIN_PRODUCTS = 'Products';
+export const ADMIN_ORDERS = 'Orders';
+export const ADMIN_CATEGORIES = 'Categories';
+export const ADMIN_PRODUCT_FORM = 'Add Product';
+

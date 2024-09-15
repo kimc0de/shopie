@@ -13,3 +13,21 @@ export const deleteProductById = async (id, token) => {
     }
   });
 }
+
+export const createProduct = async (product, token) => {
+  return axios.post(`${baseUrl}/products`, product,{
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${token}`,
+    }
+  });
+}
+
+export const updateProduct = async (product, token, id) => {
+  return axios.put(`${baseUrl}/products/${id}`, product, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Authorization: `Bearer ${token}`,
+    }
+  });
+}

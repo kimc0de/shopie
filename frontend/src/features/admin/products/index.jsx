@@ -1,18 +1,20 @@
 import {
   ActivityIndicator,
-  Button,
   FlatList,
-  Text,
   View,
 } from 'react-native';
 import {useState, useCallback} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Feather from '@expo/vector-icons/Feather';
 
 import {deleteProductById, getAllProducts} from '../../../api';
 import {SearchBar} from '../../../components/search-input';
 import {ListItem} from '../../../components/list-item';
 import {ListHeader} from '../../../components/list-header';
+import {Button} from '../../../components/button';
+import * as enums from '../../../components/button/enums';
+import {ADMIN_CATEGORIES, ADMIN_PRODUCT_FORM, ADMIN_ORDERS} from '../../../routes';
 
 import {styles} from './styles';
 
@@ -68,6 +70,29 @@ export const Products = (props) => {
 
   return (
     <View style={styles.admin_products_container}>
+      <View style={styles.admin_products_buttonGroup}>
+        <Button
+          size={enums.SMALL}
+          title='Orders'
+          onPress={() => props.navigation.navigate(ADMIN_ORDERS)}
+        >
+          <Feather name='plus' size={16} color='white' />
+        </Button>
+        <Button
+          size={enums.SMALL}
+          title='Categories'
+          onPress={() => props.navigation.navigate(ADMIN_CATEGORIES)}
+        >
+          <Feather name='plus' size={16} color='white' />
+        </Button>
+        <Button
+          size={enums.SMALL}
+          title='Products'
+          onPress={() => props.navigation.navigate(ADMIN_PRODUCT_FORM)}
+        >
+          <Feather name='plus' size={16} color='white' />
+        </Button>
+      </View>
       <SearchBar
         searchPhrase={searchPhrase}
         setSearchPhrase={searchProduct}

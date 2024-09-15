@@ -79,7 +79,6 @@ router.post('/', upload.single('image'), async (req, res) => {
     image: `${basePath}${imageFileName}`, // example: http://localhost:3000/public/uploads/image-2323232
     isFeatured: req.body.isFeatured,
     name: req.body.name,
-    numReviews: req.body.numReviews,
     price: req.body.price,
     rating: req.body.rating,
     richDescription: req.body.richDescription,
@@ -94,7 +93,7 @@ router.post('/', upload.single('image'), async (req, res) => {
   res.send(product);
 });
 
-router.put('/:id', async (req, res) => {
+router.put('/:id', upload.single('image'), async (req, res) => {
   if (!mongoose.isValidObjectId(req.params.id)) {
     res.status(400).send('Invalid Product Id');
   }
@@ -129,10 +128,9 @@ router.put('/:id', async (req, res) => {
       countInStock: req.body.countInStock,
       description: req.body.description,
       image: imagePath,
-      isFeatured: req.body.isFeatured,
-      numReviews: req.body.numReviews,
+      isFeatured: req.body.isFeatured || false,
+      rating: req.body.rating || 0,
       price: req.body.price,
-      rating: req.body.rating,
       richDescription: req.body.richDescription,
     },
     {new: true}
@@ -193,7 +191,6 @@ router.put('/gallery-images/:id', upload.array('images', 10), async (req, res) =
   if (!mongoose.isValidObjectId(req.params.id)) {
     return res.status(400).send('Invalid Product Id');
   }
-  console.log('im here');
   const files = req.files;
   let imagesPaths = [];
   const basePath = `${req.protocol}://${req.get('host')}/public/uploads/`;
@@ -211,7 +208,6 @@ router.put('/gallery-images/:id', upload.array('images', 10), async (req, res) =
     },
     {new: true}
   );
-  console.log('im updating product');
 
   if (!product) {
     return res.status(404).send('The product cannot be updated!');

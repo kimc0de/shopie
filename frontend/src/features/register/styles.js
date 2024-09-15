@@ -7,9 +7,6 @@ import {
 } from '../../styles';
 
 export const styles = StyleSheet.create({
-  register_container: {
-    flex: 1,
-  },
   register_title: {
     fontSize: FontSize.LARGE_1,
     fontWeight: FontStyle.BOLD,

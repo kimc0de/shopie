@@ -12,7 +12,7 @@ const {height} = Dimensions.get("window");
 export const styles = StyleSheet.create({
   admin_products_container: {
     backgroundColor: 'white',
-    marginBottom: Space.SPACE_10,
+    marginBottom: Space.SPACE_20,
     alignItems: 'center',
   },
   admin_productItem_container: {
@@ -21,5 +21,8 @@ export const styles = StyleSheet.create({
   admin_products_spinner: {
     height: height,
     alignItems: 'center',
+  },
+  admin_products_buttonGroup: {
+    flexDirection: 'row',
   }
 });

@@ -81,7 +81,7 @@ export const Register = (props) => {
       extraHeight={200}
       enableOnAndroid={true}
     >
-      <Form title="Register" style={styles.register_container} title_style={styles.register_title}>
+      <Form title="Register" title_style={styles.register_title}>
         <Input
           placeholder="Name"
           value={name}

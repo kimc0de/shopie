@@ -7,9 +7,6 @@ import {
 } from '../../styles';
 
 export const styles = StyleSheet.create({
-  login_container: {
-    flex: 1,
-  },
   login_title: {
     fontSize: FontSize.LARGE_1,
     fontWeight: FontStyle.BOLD,

@@ -9,7 +9,7 @@ import {
 import {useState} from 'react';
 import Icon from '@expo/vector-icons/FontAwesome';
 
-import {PRODUCT_DETAILS, PRODUCT_FORM} from '../../routes';
+import {PRODUCT_DETAILS, ADMIN_PRODUCT_FORM} from '../../routes';
 import {Button} from '../button';
 import * as enums from '../button/enums';
 
@@ -38,7 +38,7 @@ export const ListItem = (props) => {
               <Icon name="close" size={30} color="black" />
             </TouchableHighlight>
             <Button title="Edit" onPress={() => [
-              props.navigation.navigate(PRODUCT_FORM, {item: props}),
+              props.navigation.navigate(ADMIN_PRODUCT_FORM, {item: props}),
               setIsVisible(false),
             ]}/>
             <Button

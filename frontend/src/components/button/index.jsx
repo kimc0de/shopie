@@ -7,7 +7,7 @@ import {
 import * as enums from './enums';
 import styles from './styles';
 
-export const Button = ({ title, type = enums.PRIMARY, size = enums.MEDIUM, onPress, children }) => {
+export const Button = ({ title, type = enums.PRIMARY, size = enums.MEDIUM, onPress, children, style }) => {
   const isPrimary = type === enums.PRIMARY;
   const isSecondary = type === enums.SECONDARY;
   const isDanger = type === enums.DANGER;
@@ -30,6 +30,7 @@ export const Button = ({ title, type = enums.PRIMARY, size = enums.MEDIUM, onPre
         isMedium && styles.medium,
         isLarge && styles.large,
         isFullWidth && styles.fullWidth,
+        style
       ]}
       onPress={onPress}
     >
