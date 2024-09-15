@@ -9,7 +9,7 @@ import {useState, useCallback} from 'react';
 import {useFocusEffect} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import {getAllProducts} from '../../../api';
+import {deleteProductById, getAllProducts} from '../../../api';
 import {SearchBar} from '../../../components/search-input';
 import {ListItem} from '../../../components/list-item';
 import {ListHeader} from '../../../components/list-header';
@@ -57,6 +57,15 @@ export const Products = (props) => {
     }
   }
 
+  const deleteProduct = (id) => {
+    deleteProductById(id, token)
+      .then(() => {
+      const products = productFilter.filter((item) => item.id !== id);
+      setProductFilter(products);
+      })
+      .catch((err) => console.error(err));
+  }
+
   return (
     <View style={styles.admin_products_container}>
       <SearchBar
@@ -69,7 +78,7 @@ export const Products = (props) => {
         <ActivityIndicator
           style={styles.admin_products_spinner}
           size='large'
-          color='red'
+          color='black'
         /> : (
         <FlatList
           data={productFilter}
@@ -79,6 +88,7 @@ export const Products = (props) => {
               {...item}
               navigation={props.navigation}
               index={index}
+              deleteProduct={deleteProduct}
             />)}
           keyExtractor={keyExtractor}
         />

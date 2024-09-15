@@ -11,6 +11,7 @@ import Icon from '@expo/vector-icons/FontAwesome';
 
 import {PRODUCT_DETAILS, PRODUCT_FORM} from '../../routes';
 import {Button} from '../button';
+import * as enums from '../button/enums';
 
 import {styles} from './styles';
 
@@ -40,7 +41,14 @@ export const ListItem = (props) => {
               props.navigation.navigate(PRODUCT_FORM, {item: props}),
               setIsVisible(false),
             ]}/>
-            <Button title="Delete" />
+            <Button
+              type={enums.DANGER}
+              title="Delete"
+              onPress={() => {
+                props.deleteProduct(props._id);
+                setIsVisible(false);
+              }}
+            />
           </View>
         </View>
       </Modal>
