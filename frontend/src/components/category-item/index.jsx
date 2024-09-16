@@ -11,7 +11,11 @@ export const CategoryItem = (props) => {
   return (
     <View style={styles.categoryItem_container}>
       <Text>{props.item.name}</Text>
-      <Button title='Delete' type={enums.DANGER}/>
+      <Button
+        title='Delete'
+        type={enums.DANGER}
+        onPress={props.delete(props.item._id)}
+      />
     </View>
-  )
+  );
 }
