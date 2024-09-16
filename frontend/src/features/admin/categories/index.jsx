@@ -60,7 +60,8 @@ export const Categories = () => {
 
   const deleteCategoryItem = (id) => {
     deleteCategory(id, token).then(() => {
-      setCategories(categories.filter((category) => category._id !== id));
+      const newCategories = categories.filter((item) => item.id !== id);
+      setCategories(newCategories);
     }).catch((error) => {
       Toast.show({
         type: 'error',
@@ -71,14 +72,6 @@ export const Categories = () => {
   }
   return (
     <View style={styles.categories_container}>
-      <View style={styles.categories_list}>
-        <FlatList
-          data={categories}
-          renderItem={({item}) => (
-            <CategoryItem item={item} delete={deleteCategoryItem}/>
-          )}
-        />
-      </View>
       <View style={styles.categories_bottomBar}>
         <View style={styles.categories_inputContainer}>
           <Input
@@ -90,6 +83,14 @@ export const Categories = () => {
         <View>
           <Button size={enums.SMALL} title="Submit" onPress={() => addCategoryItem()}/>
         </View>
+      </View>
+      <View style={styles.categories_list}>
+        <FlatList
+          data={categories}
+          renderItem={({item}) => (
+            <CategoryItem item={item} delete={deleteCategoryItem}/>
+          )}
+        />
       </View>
     </View>
   );

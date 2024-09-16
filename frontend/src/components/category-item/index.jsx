@@ -14,7 +14,7 @@ export const CategoryItem = (props) => {
       <Button
         title='Delete'
         type={enums.DANGER}
-        onPress={props.delete(props.item._id)}
+        onPress={() => props.delete(props.item._id)}
       />
     </View>
   );

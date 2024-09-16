@@ -10,9 +10,10 @@ export const styles = StyleSheet.create({
   categories_container: {
     position: 'relative',
     height: '100%',
+    paddingBottom: Space.SPACE_10,
   },
   categories_list: {
-    marginBottom: Space.SPACE_3,
+    marginBottom: Space.SPACE_10,
   },
   categories_inputContainer: {
     width: '70%',
@@ -26,6 +27,5 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'absolute',
     bottom: 0,
-    left: 0,
   }
 });
