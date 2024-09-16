@@ -25,14 +25,15 @@ export const styles = StyleSheet.create({
     margin: Space.SPACE_1,
   },
   profile_logoutBtn: {
-    marginTop: Space.SPACE_3,
+    marginTop: Space.SPACE_1,
+    marginBottom: Space.SPACE_5,
     padding: Space.SPACE_1,
     borderRadius: BorderRadius.SMALL,
   },
   profile_order: {
     marginTop: Space.SPACE_3,
     alignItems: "center",
-    marginBottom: Space.SPACE_10,
+    marginBottom: Space.SPACE_1,
   },
   profile_orderTitle: {
     fontSize: FontSize.MEDIUM_2,

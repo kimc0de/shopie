@@ -82,16 +82,7 @@ export const Profile = (props) => {
             Phone: {userProfile ? userProfile.phone : ""}
           </Text>
         </View>
-        <View style={styles.profile_logoutBtn}>
-          <Button
-            type={enums.SECONDARY}
-            title="Log Out"
-            onPress={() => [
-              AsyncStorage.removeItem("jwt"),
-              logout(context.dispatch)
-            ]}
-          />
-        </View>
+
         <View style={styles.profile_order}>
           <Text style={styles.profile_orderTitle}>My Orders</Text>
           <View>
@@ -105,6 +96,17 @@ export const Profile = (props) => {
               </View>
             )}
           </View>
+        </View>
+
+        <View style={styles.profile_logoutBtn}>
+          <Button
+            type={enums.SECONDARY}
+            title="Log Out"
+            onPress={() => {
+              AsyncStorage.removeItem("jwt");
+              logout(context.dispatch);
+            }}
+          />
         </View>
       </ScrollView>
     </View>

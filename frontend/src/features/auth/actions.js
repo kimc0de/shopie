@@ -32,7 +32,7 @@ export const loginUser = (user, dispatch) => {
           text1: "Logged in!",
         });
       } else {
-        logoutUser(dispatch)
+        logout(dispatch)
       }
     })
     .catch((err) => {
@@ -42,7 +42,7 @@ export const loginUser = (user, dispatch) => {
         text1: "Please provide correct credentials",
         text2: err.message
       });
-      logoutUser(dispatch)
+      logout(dispatch)
     });
 };
 
