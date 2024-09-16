@@ -29,7 +29,6 @@ const BaseCheckout = (props) => {
         addItemToCart: undefined, // Remove the non-serializable function
       }
     }));
-
     let order = {
       city,
       country,
@@ -41,7 +40,7 @@ const BaseCheckout = (props) => {
       zip,
     }
 
-    props.navigation.navigate(PAYMENT, {order});
+    props.navigation.navigate(PAYMENT, {order: order});
   };
 
   useEffect(() => {

@@ -66,7 +66,7 @@ export const Payment = (props) => {
       <View style={styles.payment_confirmation}>
         <Button
           title="Confirm"
-          onPress={() => props.navigation.navigate(CONFIRM, {order})}
+          onPress={() => props.navigation.navigate(CONFIRM, {order: order})}
         />
       </View>
     </View>

@@ -176,7 +176,7 @@ export const ProductForm = (props) => {
       createProduct(formData, token).then((res) => {
         if (res.status === 200 || res.status === 201) {
           Toast.show({
-            topOffset: 60,
+            topOffset: TOAST_OFFSET,
             type: 'success',
             text1: 'Product successfully added!',
           });

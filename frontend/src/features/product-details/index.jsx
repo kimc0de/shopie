@@ -18,7 +18,6 @@ import {styles} from './styles';
 const BaseProductDetails = (props) => {
   const [item, _] = useState(props.route.params.item);
 
-  console.log(item);
   return (
     <View style={styles.productDetails_container}>
       <ScrollView>
