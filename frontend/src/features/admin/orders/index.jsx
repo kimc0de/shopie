@@ -1,6 +1,6 @@
 import {
   View,
-  FlatList, Text,
+  FlatList,
 } from 'react-native';
 import {useState, useCallback} from 'react';
 import {useFocusEffect} from '@react-navigation/native';

@@ -2,7 +2,6 @@ import {useEffect, useState} from 'react';
 import {
   View,
   Text,
-  FlatList
 } from 'react-native';
 import {Picker} from 'native-base';
 import Toast from 'react-native-toast-message';
@@ -76,7 +75,7 @@ export const OrderCard = (props) => {
     };
 
     updateOrder(order, props.id, token).then((res) => {
-        if (res.status == 200 || res.status == 201) {
+        if (res.status === 200 || res.status === 201) {
           Toast.show({
             topOffset: 60,
             type: "success",
