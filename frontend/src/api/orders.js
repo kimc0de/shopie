@@ -17,3 +17,11 @@ export const updateOrder = async (order, id, token) => {
     },
   });
 }
+
+export const getOrderByUser = async (userId, token) => {
+  return axios.get(`${baseUrl}/orders/get/userorders/${userId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}

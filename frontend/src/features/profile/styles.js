@@ -29,4 +29,12 @@ export const styles = StyleSheet.create({
     padding: Space.SPACE_1,
     borderRadius: BorderRadius.SMALL,
   },
+  profile_order: {
+    marginTop: Space.SPACE_3,
+    alignItems: "center",
+    marginBottom: Space.SPACE_10,
+  },
+  profile_orderTitle: {
+    fontSize: FontSize.MEDIUM_2,
+  }
 });

@@ -1,9 +1,10 @@
-import {useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {View} from 'react-native';
 import {Item, Picker} from "native-base";
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {connect} from 'react-redux';
 import Octicons from '@expo/vector-icons/Octicons';
+import Toast from 'react-native-toast-message';
 
 import {Button} from '../../components/button';
 import {Form} from '../../components/form';
@@ -11,8 +12,13 @@ import {Input} from '../../components/input';
 import {countries} from '../../../assets/data/countries';
 import {styles} from './styles';
 import {PAYMENT} from '../../routes';
+import {AuthGlobal} from '../../features/auth/global';
+import {TOAST_OFFSET} from '../../components/toast/constants';
+import * as enums from '../../components/order-card/enums';
 
 const BaseCheckout = (props) => {
+  const context = useContext(AuthGlobal);
+
   const [orderItems, setOrderItems] = useState();
   const [address, setAddress] = useState();
   const [address2, setAddress2] = useState();
@@ -20,6 +26,7 @@ const BaseCheckout = (props) => {
   const [zip, setZip] = useState();
   const [country, setCountry] = useState();
   const [phone, setPhone] = useState();
+  const [user, setUser] = useState();
 
   const checkout = () => {
     const serializableOrderItems = orderItems.map(item => ({
@@ -37,7 +44,9 @@ const BaseCheckout = (props) => {
       phone,
       shippingAddress1: address,
       shippingAddress2: address2,
+      status: enums.PENDING,
       zip,
+      user: user
     }
 
     props.navigation.navigate(PAYMENT, {order: order});
@@ -45,6 +54,18 @@ const BaseCheckout = (props) => {
 
   useEffect(() => {
     setOrderItems(props.cartItems);
+    if(context.stateUser.isAuthenticated) {
+      setUser(context.stateUser.user.userId)
+    } else {
+      props.navigation.navigate("Cart");
+      Toast.show({
+        topOffset: TOAST_OFFSET,
+        type: "error",
+        text1: "Please Login to Checkout",
+        text2: ""
+      });
+    }
+
   }, []);
 
   return (
