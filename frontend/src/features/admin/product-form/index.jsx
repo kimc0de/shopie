@@ -24,8 +24,6 @@ import {createProduct, updateProduct, getAllCategories} from '../../../api';
 import {ADMIN_PRODUCTS} from '../../../routes';
 
 import {styles} from './styles';
-import {baseUrl} from '../../../../assets/common/baseUrl';
-import axios from 'axios';
 
 export const ProductForm = (props) => {
   const [pickerValue, setPickerValue] = useState();
