@@ -38,4 +38,7 @@ export const styles = StyleSheet.create({
   orderCard_price: {
     fontWeight: FontStyle.BOLD,
   },
+  orderCard_info_container: {
+    margin: Space.SPACE_1,
+  }
 });

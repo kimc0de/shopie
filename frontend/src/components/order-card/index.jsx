@@ -77,18 +77,18 @@ export const OrderCard = (props) => {
     updateOrder(order, props.id, token).then((res) => {
         if (res.status === 200 || res.status === 201) {
           Toast.show({
-            topOffset: 60,
+            topOffset: TOAST_OFFSET,
             type: "success",
             text1: "Order Edited.",
           });
           setTimeout(() => {
-            props.navigation.navigate(ADMIN_PRODUCTS);
+            props.navigation.navigate(ADMIN_PRODUCTS); // @TODO: reload page would be better
           }, 500);
         }
       })
       .catch((error) => {
         Toast.show({
-          topOffset: 60,
+          topOffset: TOAST_OFFSET,
           type: "error",
           text1: "Something went wrong.",
           text2: error.message,
@@ -101,7 +101,7 @@ export const OrderCard = (props) => {
       <View style={styles.orderCard_id_container}>
         <Text>Order Number: #{props.id}</Text>
       </View>
-      <View style={{ marginTop: 10 }}>
+      <View style={styles.orderCard_info_container}>
         <Text>
           Status: {statusText}
         </Text>
