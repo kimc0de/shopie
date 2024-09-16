@@ -68,7 +68,7 @@ export const ListItem = (props) => {
           source={{uri: props.image ? props.image: DEFAULT_IMAGE}}
         />
         <Text numberOfLines={1} style={styles.listItem_itemName}>{props.name}</Text>
-        <Text numberOfLines={1}  style={styles.listItem_item}>{props.category.name}</Text>
+        <Text numberOfLines={1} style={styles.listItem_item}>{props.category.name}</Text>
         <Text style={styles.listItem_item}>${props.price}</Text>
       </TouchableOpacity>
     </View>

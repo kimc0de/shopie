@@ -1,12 +1,9 @@
-import {
-  StyleSheet,
-} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 import {
   BorderRadius,
   Space,
 } from '../../../styles';
-
 
 export const styles = StyleSheet.create({
   productForm_label: {
