@@ -6,14 +6,18 @@ import {
 import {connect} from 'react-redux';
 import {SwipeListView} from 'react-native-swipe-list-view';
 import Icon from '@expo/vector-icons/FontAwesome';
+import {useContext} from 'react';
 
 import {CartItem} from '../../components/cart-item';
 import {CHECKOUT} from '../../routes';
 import {Button} from '../../components/button';
 import * as enums from '../../components/button/enums';
+import {AuthGlobal} from '../../features/auth/global';
+import {TOAST_OFFSET} from '../../components/toast/constants';
 
 import {styles} from './styles';
 import * as actions from './actions';
+import Toast from 'react-native-toast-message';
 
 const mapStateToProps = (state) => {
   const {cartItems} = state;
@@ -29,6 +33,8 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const BaseCart = (props) => {
+  const context = useContext(AuthGlobal);
+
   const total = props.cartItems.reduce((acc, item) => {
     return acc + item.product.price;
   }, 0);
@@ -68,15 +74,24 @@ const BaseCart = (props) => {
               rightOpenValue={-75}
             />
           </View>
-        )
-        }
+        )}
         <View style={styles.cart_bottomContainer}>
           <View>
             <Button title='Clear' type={enums.SECONDARY} onPress={() => props.clearCart()}/>
           </View>
           <View style={styles.cart_bottomRightContainer}>
             <Text style={styles.cart_totalPrice}>${total}</Text>
-            <Button title='Checkout' onPress={() => props.navigation.navigate(CHECKOUT)}/>
+            {context.stateUser.isAuthenticated ? (
+              <Button title='Checkout' onPress={() => props.navigation.navigate(CHECKOUT)}/>
+            ) : (
+              <Button title='Checkout' type={enums.DISABLED} onPress={() => {
+                Toast.show({
+                  topOffset: TOAST_OFFSET,
+                  type: 'error',
+                  text1: 'Please login to checkout.',
+                });
+              }}/>
+            )}
           </View>
         </View>
     </>

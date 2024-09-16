@@ -33,6 +33,9 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderColor: 'gray',
   },
+  disabled:{
+    backgroundColor: 'gray',
+  },
   // Size styles
   small: {
     paddingVertical: Space.SPACE_1,

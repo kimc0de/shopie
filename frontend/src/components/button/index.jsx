@@ -12,6 +12,7 @@ export const Button = ({ title, type = enums.PRIMARY, size = enums.MEDIUM, onPre
   const isSecondary = type === enums.SECONDARY;
   const isDanger = type === enums.DANGER;
   const isLink = type === enums.LINK;
+  const isDisabled = type === enums.DISABLED;
 
   const isSmall = size === enums.SMALL;
   const isMedium = size === enums.MEDIUM;
@@ -25,6 +26,7 @@ export const Button = ({ title, type = enums.PRIMARY, size = enums.MEDIUM, onPre
         isPrimary && styles.primary,
         isSecondary && styles.secondary,
         isDanger && styles.danger,
+        isDisabled && styles.disabled,
         isLink && styles.link,
         isSmall && styles.small,
         isMedium && styles.medium,
