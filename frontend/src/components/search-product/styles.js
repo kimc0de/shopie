@@ -10,6 +10,8 @@ import {
 export const styles = StyleSheet.create({
   productSearch_container: {
     margin: Space.SPACE_1,
+    position: "absolute",
+    left: -210,
   },
   productSearch_item: {
     flexDirection: "row",
@@ -24,6 +26,7 @@ export const styles = StyleSheet.create({
     marginBottom: Space.SPACE_2,
   },
   productSearch_details: {
+    width: '90%',
     fontSize: FontSize.SMALL_3,
     fontStyle: FontStyle.ITALIC,
   },

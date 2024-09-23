@@ -31,6 +31,7 @@ export const SearchBar = ({focused, searchPhrase, setSearchPhrase, setFocused}) 
         />
         <TextInput
           style={styles.searchBar_input}
+          placeholderTextColor="gray"
           placeholder="search products..."
           value={searchPhrase}
           onChangeText={setSearchPhrase}

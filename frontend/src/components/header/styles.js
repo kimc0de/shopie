@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     height: HEADER_HEIGHT,
     alignItems: 'center',
-    marginTop: Space.SPACE_10,
+    marginTop: Space.SPACE_8,
   },
   header_image: {
     height: toDp(50),
