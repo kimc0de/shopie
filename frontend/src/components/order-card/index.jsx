@@ -48,13 +48,10 @@ export const OrderCard = (props) => {
 
     if (props.status === PENDING) {
       setStatusText(PENDING);
-      // setCardColor("#E74C3C");
     } else if (props.status === SHIPPED) {
       setStatusText(SHIPPED);
-      // setCardColor("#F1C40F");
     } else {
       setStatusText(DELIVERED);
-      // setCardColor("#2ECC71");
     }
   }, []);
 

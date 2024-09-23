@@ -38,5 +38,5 @@ export const styles = StyleSheet.create({
   },
   confirm_placeOrderButton: {
     padding: Space.SPACE_2,
-  }
+  },
 });

@@ -22,14 +22,11 @@ const mapDispatchToProps = (dispatch) => {
 
 const BaseConfirm = (props) => {
   const confirm = props.route.params;
+  const finalOrder = confirm?.order?.order;
   const items = confirm?.order?.order?.orderItems;
 
-  const finalOrder = props.route.params;
-
   const confirmOrder = () => {
-    const order = finalOrder.order.order;
-
-    createOrder(order).then((res) => {
+    createOrder(finalOrder).then((res) => {
       if (res.status === 200 || res.status === 201) {
         Toast.show({
           topOffset: TOAST_OFFSET,
@@ -53,7 +50,9 @@ const BaseConfirm = (props) => {
     });
 
   }
-
+  const total = items.reduce((acc, item) => {
+    return acc + item.product.price;
+  }, 0);
   return (
     <ScrollView contentContainerStyle={styles.confirm_container}>
         <View style={styles.confirm_body}>
@@ -74,6 +73,7 @@ const BaseConfirm = (props) => {
                   <CartItem key={`${item.product.name}-${index}`} product={item.product}/>
                 )
               })}
+              <Text style={styles.confirm_info_title}>Total: ${total}</Text>
             </View>
           ) : null}
         </View>
