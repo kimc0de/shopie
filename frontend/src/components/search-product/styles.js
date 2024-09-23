@@ -16,6 +16,8 @@ export const styles = StyleSheet.create({
   productSearch_item: {
     flexDirection: "row",
     margin: Space.SPACE_2,
+    justifyContent: "flex-start",
+    alignItems: "center",
     borderBottomWidth: 1,
     borderBottomColor: "lightgrey"
   },
@@ -24,11 +26,6 @@ export const styles = StyleSheet.create({
     fontWeight: FontStyle.BOLD,
     fontStyle: FontStyle.ITALIC,
     marginBottom: Space.SPACE_2,
-  },
-  productSearch_details: {
-    width: '90%',
-    fontSize: FontSize.SMALL_3,
-    fontStyle: FontStyle.ITALIC,
   },
   productSearch_image: {
     width: 50,

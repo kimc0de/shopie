@@ -13,7 +13,6 @@ import {PRODUCT_DETAILS} from '../../routes';
 const Item = (props) => {
   const {
     name,
-    details,
     image,
     item,
     navigation,
@@ -28,10 +27,7 @@ const Item = (props) => {
         resizeMode='contain'
         source={{uri: image ? image: 'https://cdn.pixabay.com/photo/2012/04/01/17/29/box-23649_960_720.png'}}
       />
-      <View>
-        <Text style={styles.productSearch_title}>{name}</Text>
-        <Text style={styles.productSearch_details}>{details}</Text>
-      </View>
+      <Text style={styles.productSearch_title}>{name}</Text>
     </TouchableOpacity >
   )
 }
