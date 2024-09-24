@@ -19,6 +19,11 @@ const mapDispatchToProps = (dispatch) => {
     clearCart: () => dispatch(actions.clearCart()),
   }
 }
+const mapStateToProps = (state) => {
+  const {cartItems} = state;
+
+  return {cartItems: cartItems};
+}
 
 const BaseConfirm = (props) => {
   const confirm = props.route.params;
@@ -50,9 +55,10 @@ const BaseConfirm = (props) => {
     });
 
   }
-  const total = items.reduce((acc, item) => {
+  const total = props.cartItems.reduce((acc, item) => {
     return acc + item.product.price;
   }, 0);
+
   return (
     <ScrollView contentContainerStyle={styles.confirm_container}>
         <View style={styles.confirm_body}>
@@ -84,4 +90,4 @@ const BaseConfirm = (props) => {
   );
 }
 
-export const Confirm = connect(null, mapDispatchToProps)(BaseConfirm);
+export const Confirm = connect(mapStateToProps, mapDispatchToProps)(BaseConfirm);
