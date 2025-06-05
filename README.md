@@ -15,11 +15,11 @@ SECRET=your_jwt_secret
 ```
 
 ## Backend setup
-1. Navigate to the `backend` directory
-2. Run `npm install` to install the dependencies
-3. Run `npm start` to start the backend server
+1. Navigate to the `backend` directory.
+2. Run `npm install` to install the dependencies.
+3. Run `npm start` to start the backend server.
 
 ## Frontend setup
-1. Navigate to the `frontend` directory
-2. Run `npm install` to install the dependencies
-3. Run `npm start` to start the frontend server
+1. Navigate to the `frontend` directory.
+2. Run `npm install` to install the dependencies.
+3. Run `npm start` to start the frontend server.
